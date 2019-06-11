@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>选中</button>
+    <button>不选中</button>
+    <input type="checkbox">
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+  $('button:first').click(function() {
+        $('input').prop('checked', true);
+        console.log($('input').prop('checked'));
+      });
+
+      $('button:last').click(function() {
+        $('input').prop('checked', false);
+        console.log($('input').prop('checked'));
+      });
+
+    </script>
+</body>
+
+</html>

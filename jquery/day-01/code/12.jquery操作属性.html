@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="imgs/01.jpg" alt="">
+    <img src="imgs/02.jpg" alt="">
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        // 添加单个属性
+        // $('img').attr("title","这是图片")
+        // 添加多个属性
+        $('img').attr({ "title": "这是图片", 'alt': '哈哈' })
+        //console.log("返回啥？",$('img').removeAttr('alt'))
+        // $('img').removeAttr('title','alt')
+        console.log($('img').attr('title'));
+        
+    </script>
+</body>
+
+</html>

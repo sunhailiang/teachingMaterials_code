@@ -242,3 +242,329 @@ $(function(){
 | next()             | $(“li”).next()              | 找下一个兄弟                       |
 | prev()             | $(“li”).prev()              | 找上一次兄弟                     |
 
+5. 下拉菜单案例
+
+[children()查找子元素 children(selector)查找指定子元素mouseover鼠标经过事mouseout:鼠标离开事件mouseenter:鼠标进入事件mouseleave：鼠标离开事件](http://github.com)
+
+6. 突出展示案例
+
+[find(selector)找到指定元素，siblings()找到所有兄弟元素](http://github.com)
+
+7. 手风琴案例
+
+```css
+  <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .parentWrap {
+            width: 200px;
+            text-align: center;
+
+        }
+
+        .menuGroup {
+            border: 1px solid #999;
+            background-color: #e0ecff;
+        }
+
+        .groupTitle {
+            display: block;
+            height: 20px;
+            line-height: 20px;
+            font-size: 16px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .menuGroup>div {
+            height: 200px;
+            background-color: #fff;
+            display: none;
+        }
+    </style>
+```
+```html
+ <ul class="parentWrap">
+        <li class="menuGroup">
+            <span class="groupTitle">标题1</span>
+            <div>我是弹出来的div1</div>
+        </li>
+        <li class="menuGroup">
+            <span class="groupTitle">标题2</span>
+            <div>我是弹出来的div2</div>
+        </li>
+        <li class="menuGroup">
+            <span class="groupTitle">标题3</span>
+            <div>我是弹出来的div3</div>
+        </li>
+        <li class="menuGroup">
+            <span class="groupTitle">标题4</span>
+            <div>我是弹出来的div4</div>
+        </li>
+    </ul>
+```
+```javascript
+ <script>
+        $(function () {
+            // 点击span标题展示div 其他所有li下面的div全部关闭
+            $('.groupTitle').click(function () {
+                $(this).next().show().parent().siblings().find('div').hide()
+            })
+        });
+ </script>
+```
+
+9. 淘宝精品案例
+[.eq(index)根据下标获得指定jquery对象 .get(index)根据下标获得dom对象index()方法获得jquery对象的索引值](http://github.com)
+
+#### 2.0 jquery操作样式
+1. style：行内样式
+2. class：类样式（主要方式）
+3. css()：采用的是行内
+   1. 情况一： css(name,value)给元素添加一个样式，直接给样式名称和值
+   2. 情况二： css({key:value,key2:value2}) 给元素添加多个样式，参数传入对象
+   3. 情况三： css(name) 当只传入样式名的时候，返回该样式名称的值  
+4. **注意**
+   1. 隐式迭代：设置操作的时候，如果是多个元素，那么给所有的元素设置相同的值
+   2. 获取操作的时候，如果是多个元素，那么只会返回第一个元素的值。
+```css
+    <style>
+      div{
+        width: 500px;
+        height: 500px;
+      }
+    </style>
+```
+```html
+ <div></div>
+```
+```javascript
+   <script src="jquery-1.12.4.min.js"></script>
+    <script>
+      // 给元素添加单个样式
+      $('div').css("backgroundColor",'red')
+      // 给元素添加多个样式
+      $('div').css({
+        "backgroundColor":'red',
+        'border':'2px solid black',
+        "margin":'100px auto'
+      })
+      // 获取样式的值
+      var sv=$('div').css('border')  //此处如果有多个div，只返回第一个元素的该样式的值
+      console.log("样式的值",sv)
+    </script>
+```
+
+#### 2.1 jquery操作class
+```css
+  <style>
+    .base {
+      background-color: pink;
+    }
+
+    .fz {
+      font-size: 50px;
+    }
+
+    .red {
+      color: red;
+    }
+  </style>
+```
+```html
+ <div>AAAAA</div>
+ <div>BBBBB</div>
+ <div>CCCCC</div>
+```
+1. addClass(name): 添加类名
+```javascript
+  $('div').addClass('base fz')
+```
+2. removeClass(name): 移除指定类 
+```javascript
+  $('div').removeClass('fz')  // 如果参数为空，就会移除掉该元素所有的类名
+```
+3. toggleClass(name): 切换类名
+```javascript
+  $('div').toggleClass('red') // 所谓切换，就是如果有该类名则删除，如果没有则添加
+```
+4. hasClass(name): 是否有某个类名
+```javascript
+  $('div').hasClass('red') // 返回true或者false，如果有多个元素只判断"第一个"
+```
+5. 淘宝tab栏切换案例
+[addClass()添加了名siblings()获取兄弟节点index()获取索引值removeClass()移除class](http://github.com)
+
+#### 2.2 jquery操作属性
+```html
+ <img src="imgs/01.jpg" alt="">
+ <img src="imgs/02.jpg" alt="">
+```
+1. attr() 设置属性
+   1. 情况一： attr(name,value)  //设置单个属性
+   `$('img').attr("title","这是图片")`
+   2. 情况二:  attr({key:value,key2:value2})  // 设置多个属性
+   `$('img').attr({ "title": "这是图片", 'alt': '哈哈' })`
+   3. 情况三:  attr(name) // 获取属性的值
+   `$('img').attr('title')`
+2. removeAttr() 移除单个或者多个属性
+```javascript
+$('img').removeAttr('alt')  // 移除单个属性
+$('img').removeAttr('alt title') // 移除多个属性中间用"空格隔开"
+```
+3. 美女相册案例
+[点击获取案例](http://github.com)
+
+4. 布尔类型的属性操作
+```html
+ <!-- 这段代码使用attr操作布尔类型的属性有Bug -->
+<button>选中</button>
+<button>不选中</button>
+<input type="checkbox">
+```
+```javascript
+       $('button:first').click(function () {
+            $('input').attr('checked', true);
+            console.log($('input').attr('checked'));
+        });
+        $('button:last').click(function () {
+            $('input').attr('checked', false);
+            console.log($('input').attr('checked'));  // undefined
+        });
+```
+**1.6版本以后凡是布尔类型属性如：checked disabled selected不在使用attr来操作，换成prop**
+> 换成prop
+```javascript
+      $('button:first').click(function() {
+        $('input').prop('checked', true);
+        console.log($('input').prop('checked'));
+      });
+
+      $('button:last').click(function() {
+        $('input').prop('checked', false);
+        console.log($('input').prop('checked'));
+      });
+```
+>功能正常
+
+5. 表格全选案例
+```css
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 300px;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+```
+```html
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="all" />
+                    </th>
+                    <th>菜名</th>
+                    <th>饭店</th>
+                </tr>
+            </thead>
+            <tbody id="tb">
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>红烧肉</td>
+                    <td>田老师</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>西红柿鸡蛋</td>
+                    <td>田老师</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>红烧狮子头</td>
+                    <td>田老师</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>日式肥牛</td>
+                    <td>田老师</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+```
+```javascript
+<script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            var $all = $('#all')
+            var $input = $("#tb input")
+            // 点击#all 则#tb input 属性selected全部变为true/否则全部变为false
+            $all.click(function () {
+                $input.prop("checked", $all.prop("checked"))
+            })
+            // 选择#tb input 所有的input的selected都是true的时候，#all被选中，否则取消选中
+            $input.click(function () {
+                if ($("#tb input:checked").length == $input.length) {
+                    $all.prop("checked", true)
+                } else {
+                    $all.prop("checked", false)
+                }
+            })
+        });
+    </script>
+```

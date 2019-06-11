@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 500px;
+        height: 500px;
+    }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+      // 给元素添加单个样式
+      $('div').css("backgroundColor",'red')
+      // 给元素添加多个样式
+      $('div').css({
+        "backgroundColor":'red',
+        'border':'2px solid black',
+        "margin":'100px auto'
+      })
+      // 获取样式的值
+      var sv=$('div').css('border')
+      console.log("样式的值",sv)
+    </script>
+</body>
+</html>
