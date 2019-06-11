@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            height: 100px;
+            background-color: orangered;
+            list-style: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>展开</button>
+    <button>收起</button>
+     <div></div>
+     <div></div>
+     <div></div>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            $('button:last').click(function () {
+               $('div').hide(1000)
+            })
+            $('button:first').click(function () {
+                $('div').show(1000)
+            })
+        })
+        // 相对于js
+        // 1、div并没有for循环，jquery内部做了
+        // 2、不需要写 ~~document.getElementById~~ 等等复杂写法了
+    </script>
+</body>
+
+</html>

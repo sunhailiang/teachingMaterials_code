@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            height: 100px;
+            background-color: orangered;
+            list-style: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>展开</button>
+    <button>收起</button>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        var show = document.getElementsByTagName('button')[0]
+        var hide = document.getElementsByTagName('button')[1]
+        var divs = document.getElementsByTagName('div')
+        // 点击展开
+        show.onclick = function () {
+            for (var i = 0; i < divs.length; i++) {
+                divs[i].style.display = 'block'
+            }
+        }
+        // 点击隐藏
+        hide.onclick = function () {
+            for (var i = 0; i < divs.length; i++) {
+                divs[i].style.display = 'none'
+            }
+        }
+    </script>
+</body>
+
+</html>
