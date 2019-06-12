@@ -1,0 +1,355 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:node</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h4 id="jquery-">jquery动画</h4>
+<blockquote>
+<ol>
+<li>jquery提供了三组基本动画，这些动画都是标准的、有规律的效果，jquery还提供了自定义动画的功能<blockquote>
+<ol>
+<li>隐藏/展示动画(<strong>参数为空,没有动画效果</strong>):本质就是改变元素的width,height,opacity<blockquote>
+<ol>
+<li>show(time,func) 展示动画<blockquote>
+<ol>
+<li>time：元素展开的动画时间，单位毫秒，可以直接数字，也可以固定字符串形式：fast:快=200ms normal：正常=400ms slow:慢=600ms </li>
+<li>func: 回调函数[可选参数],动画执行完成后执行</li>
+</ol>
+</blockquote>
+</li>
+<li>hide() 隐藏动画<blockquote>
+<ol>
+<li><strong>用法和show()一致，只是动画效果是逆向的</strong></li>
+</ol>
+</blockquote>
+</li>
+<li>toggle()<blockquote>
+<ol>
+<li>动画切换，如果当前状态是展示，触发toggle()则隐藏，否则展示</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<pre><code class="lang-css">  &lt;style&gt;
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+      display: none;
+    }
+  &lt;/style&gt;
+</code></pre>
+<pre><code class="lang-html">  &lt;button&gt;显示&lt;/button&gt;
+  &lt;button&gt;隐藏&lt;/button&gt;
+  &lt;button&gt;切换&lt;/button&gt;
+  &lt;div&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="lang-js">  &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(&#39;button:first&#39;).click(function() {
+      $(&#39;div&#39;).show(1000,&#39;linear&#39;,function() {
+        console.log(&#39;展开动画执行完成&#39;);
+      });
+    });
+
+    $(&#39;button&#39;).eq(1).click(function() {
+      $(&#39;div&#39;).hide(1000,function(){
+        console.log(&#39;隐藏动画执行完成&#39;);
+      });
+    });
+    $(&#39;button&#39;).eq(2).click(function() {
+      // 如果是显示状态，就会隐藏， 如果是隐藏状态，就会显示
+      $(&#39;div&#39;).toggle(1000,function(){
+       console.log(&quot;动画切换完成了&quot;);
+      });
+    })
+  &lt;/script&gt;
+</code></pre>
+<blockquote>
+<blockquote>
+<ol start="2">
+<li>淡入/淡出动画(<strong>没有参数时默认是normal也就是400ms</strong>):本质就是改变元素透明度<blockquote>
+<ol>
+<li>fadeIn() </li>
+<li>fadeOut()</li>
+<li>fadeToggle()</li>
+<li><strong>参数，用法和show()/hide()/toggle()一致可以一并记忆，只是动画效果不同</strong></li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</blockquote>
+<pre><code class="lang-css">  &lt;style&gt;
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: red;
+      display: none;
+    }
+  &lt;/style&gt;
+</code></pre>
+<pre><code class="lang-html">  &lt;button&gt;显示&lt;/button&gt;
+  &lt;button&gt;隐藏&lt;/button&gt;
+  &lt;button&gt;切换&lt;/button&gt;
+  &lt;div&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="lang-javascript">  &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(&#39;button&#39;).eq(0).click(function() {
+      $(&#39;div&#39;).fadeIn()  // 淡入
+    });
+
+    $(&#39;button&#39;).eq(1).click(function() {
+      $(&#39;div&#39;).fadeOut(1000); // 淡出
+    });
+
+    $(&#39;button&#39;).eq(2).click(function() {
+      $(&#39;div&#39;).fadeToggle(); // 淡入淡出切换
+    })
+  &lt;/script&gt;
+</code></pre>
+<blockquote>
+<blockquote>
+<p>2.1 京东商品轮播图案例
+<a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-02/code/03-%E4%BA%AC%E4%B8%9C%E5%95%86%E5%93%81%E8%BD%AE%E6%92%AD%E5%9B%BE">从这里获取代码</a></p>
+<ol start="3">
+<li>拉/上卷动画(<strong>没有参数时默认是normal也就是400ms</strong>):本质就是改变元素的height属性<blockquote>
+<ol>
+<li>slideDown()</li>
+<li>slideUp()</li>
+<li>slideToggle()</li>
+<li><strong>参数，用法和show()/hide()/toggle()一致可以一并记忆，只是动画效果不同</strong>
+3.5 下拉菜单案例
+<a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-02/code/05-%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95">从这里获取代码</a></li>
+</ol>
+</blockquote>
+</li>
+<li>自定义动画 animate()<blockquote>
+<ol>
+<li>参数1：必填，给动画设置样式 <strong>是个对象</strong></li>
+<li>参数2：指定动画时间，默认是normal</li>
+<li>参数3：指定动画效果 默认是swing ,常用的还有linear等等</li>
+<li>参数4：回调函数，动画完成后执行</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</blockquote>
+<pre><code class="lang-css">  &lt;style&gt;
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+      left: 0;
+    }
+    div:nth-of-type(2) {
+      margin-top: 200px; 
+    }
+  &lt;/style&gt;
+</code></pre>
+<pre><code class="lang-html">  &lt;button&gt;执行动画&lt;/button&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="lang-js">  &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(&#39;button&#39;).eq(0).click(function() {
+      $(&#39;div&#39;).animate({ width: &#39;400px&#39;, height: 400, borderRadius: 200},2000 )
+      $(&#39;div&#39;).eq(0).animate({left: 1000}, 5000);
+      $(&#39;div&#39;).eq(1).animate({left: 1000}, 5000, &#39;linear&#39;, function() {
+        console.log(&#39;动画执行结束了&#39;);
+      });
+    });
+  &lt;/script&gt;
+</code></pre>
+<blockquote>
+<blockquote>
+<p>4.1 小米手风琴效果案例
+<a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-02/code/06-%E6%89%8B%E9%A3%8E%E7%90%B4">从这里获取代码</a></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<ol start="5">
+<li>jquery动画队列<blockquote>
+<ol>
+<li>jquery为了保证动画不会丢失，使用队列的形式，依次执行动画</li>
+<li>所以只要你触发动画事件，就相当于向队列添加一个动画任务,直到执行完成</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</blockquote>
+<pre><code class="lang-css">  &lt;style&gt;
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      position: absolute;
+    }
+  &lt;/style&gt;
+</code></pre>
+<pre><code class="lang-html">  &lt;div&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="lang-java">  &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    // 类似回调地狱执行完在执行下一个,保证不会丢失
+    // $(&#39;div&#39;).animate({left: 400}, function() {
+    //   $(&#39;div&#39;).animate({width: 300}, function() {
+    //     $(&#39;div&#39;).animate({height: 300}, function(){
+    //       $(&#39;div&#39;).animate({borderRadius: 150})
+    //     })
+    //   })
+    // });
+
+    // 采用链式比较直观
+     $(&#39;div&#39;).animate({left: 400}).animate({width: 300}).animate({height: 300}).animate({borderRadius: 150})  
+    // 1. 跑到left:400的地方
+    // 2. 宽度变大为300
+    // 3. 高度变为300
+    // 4. 变圆
+    // 四个步骤依次执行
+  &lt;/script&gt;
+</code></pre>
+<blockquote>
+<blockquote>
+<ol start="6">
+<li>stop()停止动画<blockquote>
+<ol>
+<li>参数一：是否清除被选元素所有加入队列的动画？true/false，默认false</li>
+<li>参数二: 是否直接跳到最后的执行结果？true/false,默认false</li>
+<li><strong>如果参数stop(true,true)  第一参数是true动画队列会被清除，所以即使第二参数也是true,但因为动画队列被清除后没有了后续动画也就执行不到最终的效果</strong></li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</blockquote>
+<pre><code class="lang-css"> &lt;style&gt;
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+  &lt;/style&gt;
+</code></pre>
+<pre><code class="lang-html">  &lt;button&gt;开始&lt;/button&gt;
+  &lt;button&gt;停止&lt;/button&gt;
+</code></pre>
+<pre><code class="lang-javascript">  &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(function(){
+      $(&#39;button&#39;).eq(0).click(function() {
+        $(&#39;div&#39;).animate({left: 400}).animate({width: 300}).animate({height: 300}).animate({borderRadius: 150}) 
+      })
+      $(&#39;button&#39;).eq(1).click(function() {
+        $(&#39;div&#39;).stop(false, true);
+      })
+    });
+  &lt;/script&gt;
+</code></pre>
+<blockquote>
+<blockquote>
+<ol start="6">
+<li>音乐导航
+<a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-02/code/09-%E9%9F%B3%E4%B9%90%E5%AF%BC%E8%88%AA">音乐导航案例的源码从这里取</a></li>
+<li>自定义动画综合案例
+<a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-02/code/10-%E6%97%8B%E8%BD%AC%E6%9C%A8%E9%A9%AC">旋转木马案例的源码从这里取</a></li>
+</ol>
+</blockquote>
+</blockquote>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>

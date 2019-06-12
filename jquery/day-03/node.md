@@ -1,4 +1,5 @@
 #### jquery节点操作
+
 >1. 创建节点
 >> $()里面放html字符串
 >>> `$('<button>看我是一个按钮</button>')`
@@ -31,7 +32,8 @@
 ```javascript
     $('div').after('<p>后面一个P</p>')
 ```
->> 城市选择案例
+城市选择案例
+
 ```css
   <style>
     select {
@@ -42,6 +44,7 @@
     }
   </style>
 ```
+
 ```html
   <select multiple id="src">
     <option>北京</option>
@@ -55,6 +58,7 @@
   <button><<</button>
   <select multiple id="tar"></select>
 ```
+
 ```javascript
  <script src="jquery-1.12.4.js"></script>
   <script>
@@ -74,7 +78,8 @@
     });
   </script>
 ```
-> 3. 删除和清空节点
+
+3. 删除和清空节点
 >> 1. remove()  // 删除自身，内部子元素一并删除
 >> 2. empty()   // 清空内部所有元素，不包括自身
 > 4. 克隆节点
@@ -82,6 +87,7 @@
 >>> 1. 参数默认false
 >>> 2. 参数false：克隆标签元素等
 >>> 3. 参数true: 深度克隆 **包括事件**
+
 ```css
     <style>
     div{
@@ -97,11 +103,13 @@
     }
     </style>
 ```
+
 ```html
   <div id="test">
         <div class="child"></div>
     </div>
 ```
+
 ```javascript
     <script src="jquery-1.12.4.js"></script>
     <script>
@@ -114,7 +122,8 @@
      $('#test').clone(true).appendTo("body")
     </script>
 ```
->> 5. 发布微博案例
+
+5. 发布微博案例
 ```css
   <style>
     * {
@@ -155,6 +164,7 @@
     }
   </style>
 ```
+
 ```html
 <div class="box" id="weibo">
   <span>微博发布</span>
@@ -165,6 +175,7 @@
   </ul>
 </div>
 ```
+
 ```javascript
 <script src="jquery-1.12.4.js"></script>
 <script>
@@ -189,17 +200,19 @@
             $(this).parent().remove()
         })
     })
-    
   });
 </script>
 ```
 
 #### jquery特殊属性操作
-> 1. val()  设置和获取表单元素的值，如text，textarea等等
+
+ 1. val()  设置和获取表单元素的值，如text，textarea等等
 >> 搜索框体验案例
+
 ```html
    <input type="text" value="哒哒哒~">
 ```
+
 ```javascript
   <script src="jquery-1.12.4.js"></script>
   <script>
@@ -214,6 +227,7 @@
         }
     })
 ```
+
 > 2. html()和text()
 >> 1. html() 相当于 innerHtml
 >> 2. text() 相当于 innerText
@@ -242,17 +256,18 @@
 >> 6. 这两个属性可读可写
 >> 7. $(window) 不支持的动画,可用$('html')
 
-> 6. 固定导航案例
-[从这获取固定导航的代码](http://github.com)
-> 7. 回到顶部案例
-[从这获取回到顶部的代码](http://github.com)
+6. 固定导航案例
+[从这获取固定导航的代码](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-03/code/08-%E5%9B%BA%E5%AE%9A%E5%AF%BC%E8%88%AA)
+7. 回到顶部案例
+[从这获取回到顶部的代码](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-03/code/09-%E5%9B%9E%E5%88%B0%E9%A1%B6%E9%83%A8)
 > 8. position()和offset()
 >> 1. offset方法和position方法都是用来获取盒子的位置的  left和top
 >> 2. offset方法获取的是盒子在整个body中的位置
 >> 3. position方法获取的盒子距离有定位的最近的父元素的位置 offsetLeft offsetTop
 >> 4. 都是返回一个对象
 
-> 9. 弹幕案例
+9. 弹幕案例
+
 ```css
   <style type="text/css">
     html,
@@ -328,6 +343,7 @@
     }
   </style>
 ```
+
 ```html
  <div class="boxDom" id="boxDom">
     <div class="idDom" id="idDom">
@@ -341,6 +357,7 @@
     </div>
   </div>
 ```
+
 ```javascript
 <script src="../jQuery版本/jquery-1.12.4.js"></script>
 <script>
@@ -410,6 +427,7 @@
 ```
 
 #### 事件注册
+
 >1. 简单注册方式
 `click(func) / mouseenter(handler) / mouseleave(handler) `
 缺点: 不能注册多个事件

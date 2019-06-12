@@ -244,11 +244,11 @@ $(function(){
 
 5. 下拉菜单案例
 
-[children()查找子元素 children(selector)查找指定子元素mouseover鼠标经过事mouseout:鼠标离开事件mouseenter:鼠标进入事件mouseleave：鼠标离开事件](http://github.com)
+[children()查找子元素 children(selector)查找指定子元素mouseover鼠标经过事mouseout:鼠标离开事件mouseenter:鼠标进入事件mouseleave：鼠标离开事件](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/06-%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95)
 
 6. 突出展示案例
 
-[find(selector)找到指定元素，siblings()找到所有兄弟元素](http://github.com)
+[find(selector)找到指定元素，siblings()找到所有兄弟元素](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/07-%E7%AA%81%E5%87%BA%E5%B1%95%E7%A4%BA)
 
 7. 手风琴案例
 
@@ -322,7 +322,7 @@ $(function(){
 ```
 
 9. 淘宝精品案例
-[.eq(index)根据下标获得指定jquery对象 .get(index)根据下标获得dom对象index()方法获得jquery对象的索引值](http://github.com)
+[.eq(index)根据下标获得指定jquery对象 .get(index)根据下标获得dom对象index()方法获得jquery对象的索引值](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/09-%E6%B7%98%E5%AE%9D%E7%B2%BE%E5%93%81)
 
 #### 2.0 jquery操作样式
 1. style：行内样式
@@ -400,7 +400,7 @@ $(function(){
   $('div').hasClass('red') // 返回true或者false，如果有多个元素只判断"第一个"
 ```
 5. 淘宝tab栏切换案例
-[addClass()添加了名siblings()获取兄弟节点index()获取索引值removeClass()移除class](http://github.com)
+[addClass()添加了名siblings()获取兄弟节点index()获取索引值removeClass()移除class](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/tab%E6%A0%8F%E5%88%87%E6%8D%A2)
 
 #### 2.2 jquery操作属性
 ```html
@@ -420,7 +420,7 @@ $('img').removeAttr('alt')  // 移除单个属性
 $('img').removeAttr('alt title') // 移除多个属性中间用"空格隔开"
 ```
 3. 美女相册案例
-[点击获取案例](http://github.com)
+[点击获取案例](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/13-%E7%BE%8E%E5%A5%B3%E7%9B%B8%E5%86%8C)
 
 4. 布尔类型的属性操作
 ```html

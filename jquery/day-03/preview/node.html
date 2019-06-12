@@ -1,0 +1,804 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:node</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h4 id="jquery-">jquery节点操作</h4>
+<blockquote>
+<ol>
+<li>创建节点<blockquote>
+<p>$()里面放html字符串</p>
+<blockquote>
+<p><code>$(&#39;&lt;button&gt;看我是一个按钮&lt;/button&gt;&#39;)</code></p>
+</blockquote>
+</blockquote>
+</li>
+<li>添加节点<blockquote>
+<ol>
+<li>append  给父级元素内部从后面追加子元素<pre><code class="lang-javascript">// parent.append(child)
+$(&#39;div&#39;).append( $(&#39;&lt;p&gt;这是新建的p标签&lt;/p&gt;&#39;) );
+</code></pre>
+</li>
+<li>appendTo  子元素从最后往父级元素内追加元素<pre><code class="lang-javascript">// child.appendTo(parent)
+$(&#39;&lt;span&gt;这是个span &lt;/span&gt;&#39;).appendTo($(&#39;div&#39;));
+</code></pre>
+</li>
+<li>prepend  往父级元素的子元素的最前面追加元素<pre><code class="lang-javascript">// parent.prepend(child)
+$(&#39;div&#39;).prepend($(&#39;&lt;div&gt;这是新建的最前边？标签&lt;/div&gt;&#39;));
+</code></pre>
+</li>
+<li>prependTo  元素追加到父级元素的内部元素的最前面<pre><code class="lang-javascript">// child.prependTo(parent)
+$(&#39;&lt;p&gt;这是一个P&lt;/p&gt;&#39;).prependTo( $(&#39;div&#39;) );
+</code></pre>
+</li>
+<li>before  追加到元素的前面(同级)<pre><code class="lang-javascript">$(&#39;div&#39;).before(&#39;&lt;p&gt;前面一个P&lt;/p&gt;&#39;) 
+</code></pre>
+</li>
+<li>after   追加到元素后面(同级)<pre><code class="lang-javascript">$(&#39;div&#39;).after(&#39;&lt;p&gt;后面一个P&lt;/p&gt;&#39;)
+</code></pre>
+城市选择案例</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<pre><code class="lang-css">  &lt;style&gt;
+    select {
+      width: 200px;
+      background-color: teal;
+      font-size: 24px;
+      height: 300px;
+    }
+  &lt;/style&gt;
+</code></pre>
+<pre><code class="lang-html">  &lt;select multiple id=&quot;src&quot;&gt;
+    &lt;option&gt;北京&lt;/option&gt;
+    &lt;option&gt;上海&lt;/option&gt;
+    &lt;option&gt;深圳&lt;/option&gt;
+    &lt;option&gt;杭州&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;button&gt;&gt;&lt;/button&gt;
+  &lt;button&gt;&gt;&gt;&lt;/button&gt;
+  &lt;button&gt;&lt;&lt;/button&gt;
+  &lt;button&gt;&lt;&lt;&lt;/button&gt;
+  &lt;select multiple id=&quot;tar&quot;&gt;&lt;/select&gt;
+</code></pre>
+<pre><code class="lang-javascript"> &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(function(){
+      $(&#39;button&#39;).eq(0).click(function(){
+          $(&#39;#src &gt; option:selected&#39;).appendTo($(&quot;#tar&quot;)).removeAttr(&#39;selected&#39;)
+      })
+      $(&#39;button&#39;).eq(1).click(function(){
+        $(&#39;#src &gt; option&#39;).appendTo(&quot;#tar&quot;)
+        })
+      $(&#39;button&#39;).eq(2).click(function(){
+        $(&#39;#tar &gt; option:selected&#39;).appendTo($(&quot;#src&quot;)).removeAttr(&#39;selected&#39;)
+        })
+      $(&#39;button&#39;).eq(3).click(function(){
+        $(&#39;#tar &gt; option&#39;).appendTo(&quot;#src&quot;)
+       })
+    });
+  &lt;/script&gt;
+</code></pre>
+<ol start="3">
+<li>删除和清空节点<blockquote>
+<blockquote>
+<ol>
+<li>remove()  // 删除自身，内部子元素一并删除</li>
+<li>empty()   // 清空内部所有元素，不包括自身</li>
+<li>克隆节点</li>
+<li>clone()<blockquote>
+<ol>
+<li>参数默认false</li>
+<li>参数false：克隆标签元素等</li>
+<li>参数true: 深度克隆 <strong>包括事件</strong></li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<pre><code class="lang-css">    &lt;style&gt;
+    div{
+        height: 400px;
+        width: 400px;
+        background-color: seagreen;
+        margin-top: 10px
+    }
+    .child{
+     height: 100px;
+     width: 100px;
+     background-color: rebeccapurple
+    }
+    &lt;/style&gt;
+</code></pre>
+<pre><code class="lang-html">  &lt;div id=&quot;test&quot;&gt;
+        &lt;div class=&quot;child&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+</code></pre>
+<pre><code class="lang-javascript">    &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+     $(&#39;#test&#39;).click(function(){
+         console.log(&#39;呵呵哒~&#39;);  
+     })
+     // 参数默认false，只克隆标签元素等等
+     $(&#39;#test&#39;).clone().appendTo(&quot;body&quot;)
+      // 参数true，克隆包括事件
+     $(&#39;#test&#39;).clone(true).appendTo(&quot;body&quot;)
+    &lt;/script&gt;
+</code></pre>
+<ol start="5">
+<li><p>发布微博案例</p>
+<pre><code class="lang-css">&lt;style&gt;
+ * {
+   margin: 0;
+   padding: 0;
+ }
+
+ ul {
+   list-style: none;
+ }
+
+ .box {
+   width: 600px;
+   margin: 100px auto;
+   border: 1px solid #000;
+   padding: 20px;
+ }
+
+ textarea {
+   width: 450px;
+   height: 160px;
+   outline: none;
+   resize: none;
+ }
+
+ ul {
+   width: 450px;
+   padding-left: 80px;
+ }
+
+ ul li {
+   line-height: 25px;
+   border-bottom: 1px dashed #cccccc;
+ }
+
+ .fr {
+   float: right;
+ }
+&lt;/style&gt;
+</code></pre>
+</li>
+</ol>
+<pre><code class="lang-html">&lt;div class=&quot;box&quot; id=&quot;weibo&quot;&gt;
+  &lt;span&gt;微博发布&lt;/span&gt;
+  &lt;textarea name=&quot;&quot; id=&quot;txt&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;
+  &lt;button id=&quot;btn&quot;&gt;发布&lt;/button&gt;
+  &lt;ul id=&quot;ul&quot;&gt;
+
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="lang-javascript">&lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  $(function(){
+    // 1、点击发布创建一个li
+    // 2、获取文本域内容给到li
+    // 3、将li追加到ul中
+    // 4、给li追加一个button
+    // 5、点击button删除li
+    $(&#39;#btn&#39;).click(function(){
+        var txt=$(&quot;#txt&quot;).val().trim()
+        $(&#39;#txt&#39;).val(&#39;&#39;)
+        if(!txt){
+            return
+        }
+        var $li=$(&#39;&lt;li&gt;&lt;/li&gt;&#39;)
+        $li.text(txt)
+        $($li).appendTo(&quot;#ul&quot;)
+        var $btn=$(&quot;&lt;button class=&#39;fr&#39;&gt;删除评论&lt;/button&gt;&quot;)
+        $btn.appendTo(&quot;li&quot;)
+        $btn.click(function(){
+            $(this).parent().remove()
+        })
+    })
+  });
+&lt;/script&gt;
+</code></pre>
+<h4 id="jquery-">jquery特殊属性操作</h4>
+<ol>
+<li>val()  设置和获取表单元素的值，如text，textarea等等<blockquote>
+<blockquote>
+<p>搜索框体验案例</p>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<pre><code class="lang-html">   &lt;input type=&quot;text&quot; value=&quot;哒哒哒~&quot;&gt;
+</code></pre>
+<pre><code class="lang-javascript">  &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(&#39;input&#39;).focus(function(){
+        if($(this).val()===&#39;哒哒哒~&#39;){
+            $(this).val(&#39;&#39;)
+        }
+    })
+    $(&#39;input&#39;).blur(function(){
+        if($(this).val()===&#39;&#39;){
+            $(this).val(&#39;哒哒哒~&#39;)
+        }
+    })
+</code></pre>
+<blockquote>
+<ol start="2">
+<li>html()和text()<blockquote>
+<ol>
+<li>html() 相当于 innerHtml</li>
+<li>text() 相当于 innerText</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li>width()-height()-innerWidth()-outerWidth()-innerHeight()-outerHeight()<blockquote>
+<ol>
+<li>width() 无参数：获取元素width 有Number类型参数：设置width</li>
+<li>innerWidth() 获取元素panding和width</li>
+<li>oputerWidth() <blockquote>
+<ol>
+<li>无参数，参数默认是false时：获取元素pading和border和width</li>
+<li>参数是true时：获取元素pading和border和width和margin</li>
+</ol>
+</blockquote>
+</li>
+<li>height() 无参数：获取元素高度 有Number类型的参数:设置height</li>
+<li>innerHeight() 获取元素padding和height</li>
+<li>outerHeight() <blockquote>
+<ol>
+<li>无参数，默认参数是false时： 获取元素padding和border和height</li>
+<li>参数是true时：获取元素padding和border和height和margin</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="4">
+<li>scrollTop()和scrollLeft()<blockquote>
+<ol>
+<li>scrollTop() 获取被卷曲的高度, 可设置卷曲高度</li>
+<li>scrollLeft() 获取被卷曲的宽度，可设置卷曲高度</li>
+</ol>
+</blockquote>
+</li>
+<li>回忆js相关<blockquote>
+<ol>
+<li>window.pageYOffset</li>
+<li>window.pageXOffset  </li>
+<li>以屏幕左上角为基准获取卷曲宽高----只读</li>
+<li>document.documentElement.scrollTop</li>
+<li>document.documentElement.scrollLeft</li>
+<li>这两个属性可读可写</li>
+<li>$(window) 不支持的动画,可用$(&#39;html&#39;)</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<ol start="6">
+<li>固定导航案例
+<a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-03/code/08-%E5%9B%BA%E5%AE%9A%E5%AF%BC%E8%88%AA">从这获取固定导航的代码</a></li>
+<li><p>回到顶部案例
+<a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-03/code/09-%E5%9B%9E%E5%88%B0%E9%A1%B6%E9%83%A8">从这获取回到顶部的代码</a></p>
+<blockquote>
+<ol start="8">
+<li>position()和offset()<blockquote>
+<ol>
+<li>offset方法和position方法都是用来获取盒子的位置的  left和top</li>
+<li>offset方法获取的是盒子在整个body中的位置</li>
+<li>position方法获取的盒子距离有定位的最近的父元素的位置 offsetLeft offsetTop</li>
+<li>都是返回一个对象</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><p>弹幕案例</p>
+</li>
+</ol>
+<pre><code class="lang-css">  &lt;style type=&quot;text/css&quot;&gt;
+    html,
+    body {
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+      height: 100%;
+      font-family: &quot;微软雅黑&quot;;
+      font-size: 62.5%;
+    }
+
+    .boxDom {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .idDom {
+      width: 100%;
+      height: 100px;
+      background: #666;
+      position: fixed;
+      bottom: 0px;
+    }
+
+    .content {
+      display: inline-block;
+      width: 430px;
+      height: 40px;
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      margin: auto;
+    }
+
+    .title {
+      display: inline;
+      font-size: 4em;
+      vertical-align: bottom;
+      color: #fff;
+    }
+
+    .text {
+      border: none;
+      width: 300px;
+      height: 30px;
+      border-radius: 5px;
+      font-size: 2.4em;
+    }
+
+    .btn {
+      width: 60px;
+      height: 30px;
+      background: #f90000;
+      border: none;
+      color: #fff;
+      font-size: 2.4em;
+    }
+
+    span {
+      height: 40px;
+      position: absolute;
+      overflow: hidden;
+      color: #000;
+      font-size: 4em;
+      line-height: 1.5em;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+  &lt;/style&gt;
+</code></pre>
+<pre><code class="lang-html"> &lt;div class=&quot;boxDom&quot; id=&quot;boxDom&quot;&gt;
+    &lt;div class=&quot;idDom&quot; id=&quot;idDom&quot;&gt;
+      &lt;div class=&quot;content&quot;&gt;
+        &lt;p class=&quot;title&quot;&gt;吐槽:&lt;/p&gt;
+        &lt;!-- autocomplete=&quot;on&quot; ： 自动补全 --&gt;
+        &lt;!-- autocomplete=&quot;off&quot; 关闭自动补全 --&gt;
+        &lt;input type=&quot;text&quot; class=&quot;text&quot; id=&quot;text&quot; autocomplete=&quot;off&quot; /&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn&quot; id=&quot;btn&quot;&gt;发射&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+<pre><code class="lang-javascript">&lt;script src=&quot;../jQuery版本/jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  $(function () {
+
+    // 1. 给按钮注册点击事件
+    // 2. 获取input的value值， 如果值为空 ，return   清空value值
+    // 3. 动态创建span，添加到boxDom中
+    // 4. 设置span的颜色为随机
+    // 5. 设置span的top: 随机 0 - 屏幕高度/3
+    // 6. 设置span的left: 一个屏幕宽度
+    // 7. span要有动画， 从右边慢慢到左边   left: - 自身的宽度
+    // 8. 等待span运动到屏幕的外边了，就需要移除span
+
+    // 9. 回车的时候，发送弹幕
+
+    var $btn = $(&#39;#btn&#39;);
+    var $text = $(&#39;#text&#39;);
+    var colors = [&#39;purple&#39;, &#39;red&#39;, &#39;black&#39;, &#39;hotpink&#39;, &#39;green&#39;, &#39;orange&#39;, &#39;blue&#39;, &#39;lime&#39;, &#39;yellowgreen&#39;, &#39;teal&#39;];
+    var $boxDom = $(&quot;#boxDom&quot;)
+
+    // 点击发射按钮，生成一个带span
+    $btn.click(function () {
+
+      if ($text.val().trim() === &#39;&#39;) {
+        return false
+      }
+      // 获取当前弹幕容器的宽高
+      var boxH = $boxDom.height()
+      var boxW = $boxDom.width()
+      // 弹幕高度随机数
+      var spanH = parseInt(Math.random() * (boxH / 2))
+      // 颜色随机数 
+      var colorIdx = parseInt(Math.random() * colors.length)
+      // 创建span
+      var $span = $(&quot;&lt;span&gt;&lt;/span&gt;&quot;)
+      // 将输入内容放入span
+      $span.text($text.val())
+      // 定义弹幕样式
+      $span.css({
+        left: boxW,
+        color: colors[colorIdx],
+        top: spanH
+      })
+      // 定义弹幕动画
+      $span.animate({
+        left: -$boxDom.width()
+      }, 10000, &#39;linear&#39;, function () {
+        $(this).remove()
+      })
+      // 追加弹幕
+      $span.appendTo($boxDom)
+      // 发射完清空
+      $text.val(&#39;&#39;)
+
+    })
+
+    // 按下enter键快速发射
+    $(document).keyup(function (e) {
+      if (e.keyCode == 13) {
+        $btn.click()
+      }
+    })
+  });
+&lt;/script&gt;
+
+</code></pre>
+<h4 id="-">事件注册</h4>
+<blockquote>
+<ol>
+<li>简单注册方式
+<code>click(func) / mouseenter(handler) / mouseleave(handler)</code>
+缺点: 不能注册多个事件</li>
+<li>bind注册
+<code>$(&quot;p&quot;).bind(&quot;click mouseenter&quot;, function(){});</code>
+缺点：不支持动态事件绑定</li>
+<li>delegate 事件委托<pre><code class="lang-javascript">// 第一个参数：selector，要绑定事件的元素
+// 第二个参数：事件类型
+// 第三个参数：事件处理函数
+$(&quot;.parentBox&quot;).delegate(&quot;p&quot;, &quot;click&quot;, function(){
+ //为 .parentBox下面的所有的p标签绑定事件
+});
+</code></pre>
+缺点：只能注册委托事件</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>4. on注册事件(重点)</strong></p>
+<blockquote>
+<ol>
+<li>jQuery1.7之后，jQuery用on统一了所有事件的处理方法。</li>
+<li>最现代的方式，兼容zepto(移动端类似jQuery的一个库)，强烈建议使用。</li>
+<li>on注册简单事件<pre><code class="lang-javascript">// 表示给$(selector)绑定事件，并且由自己触发，不支持动态绑定。
+$(selector).on( &quot;click&quot;, function() {});
+</code></pre>
+</li>
+<li>on注册委托事件<pre><code class="lang-javascript">// 表示给$(selector)绑定代理事件，当必须是它的内部元素span才能触发这个事件，支持动态绑定
+$(selector).on( &quot;click&quot;,“span”, function() {});
+</code></pre>
+</li>
+<li>on注册事件的语法<pre><code class="lang-javascript">// 第一个参数：events，绑定事件的名称可以是由空格分隔的多个事件（标准事件或者自定义事件）
+// 第二个参数：selector, 执行事件的后代元素（可选），如果没有后代元素，那么事件将有自己执行。
+// 第三个参数：data，传递给处理函数的数据，事件触发的时候通过event.data来使用（不常使用）
+// 第四个参数：handler，事件处理函数
+$(selector).on(events[,selector][,data],handler);
+</code></pre>
+</li>
+<li>委托事件案例
+<code>`</code>css</li>
+</ol>
+</blockquote>
+</blockquote>
+<style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .wrap {
+      width: 410px;
+      margin: 100px auto 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+    }
+
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "Î¢ÈíÑÅºÚ";
+      color: #fff;
+    }
+
+    td {
+      font: 14px "Î¢ÈíÑÅºÚ";
+    }
+
+    td a.get {
+      text-decoration: none;
+    }
+
+    a.del:hover {
+      text-decoration: underline;
+    }
+
+    tbody tr {
+      background-color: #f0f0f0;
+    }
+
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: #fafafa;
+    }
+
+    .btnAdd {
+      width: 110px;
+      height: 30px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .form-item {
+      height: 100%;
+      position: relative;
+      padding-left: 100px;
+      padding-right: 20px;
+      margin-bottom: 34px;
+      line-height: 36px;
+    }
+
+    .form-item > .lb {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+      width: 100px;
+      text-align: right;
+    }
+
+    .form-item > .txt {
+      width: 300px;
+      height: 32px;
+    }
+
+    .mask {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      opacity: 0.15;
+      display: none;
+    }
+
+    .form-add {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      margin-left: -197px;
+      padding-bottom: 20px;
+      background: #fff;
+      display: none;
+    }
+
+    .form-add-title {
+      background-color: #f7f7f7;
+      border-width: 1px 1px 0 1px;
+      border-bottom: 0;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .form-add-title span {
+      width: auto;
+      height: 18px;
+      font-size: 16px;
+      font-family: ËÎÌå;
+      font-weight: bold;
+      color: rgb(102, 102, 102);
+      text-indent: 12px;
+      padding: 8px 0px 10px;
+      margin-right: 10px;
+      display: block;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .form-add-title div {
+      width: 16px;
+      height: 20px;
+      position: absolute;
+      right: 10px;
+      top: 6px;
+      font-size: 30px;
+      line-height: 16px;
+      cursor: pointer;
+    }
+
+    .form-submit {
+      text-align: center;
+    }
+
+    .form-submit input {
+      width: 170px;
+      height: 32px;
+    }
+  </style>
+
+<pre><code>```html
+&lt;div class=&quot;wrap&quot;&gt;
+  &lt;input type=&quot;button&quot; value=&quot;清空内容&quot; id=&quot;btn&quot;&gt;
+  &lt;input type=&quot;button&quot; value=&quot;添加&quot; id=&quot;btnAdd&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;课程名称&lt;/th&gt;
+      &lt;th&gt;所属学院&lt;/th&gt;
+      &lt;th&gt;操作&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody id=&quot;j_tb&quot;&gt;
+    &lt;tr&gt;
+      &lt;!-- &lt;td&gt;&lt;input type=&quot;checkbox&quot;/&gt;&lt;/td&gt; --&gt;
+      &lt;td&gt;JavaScript&lt;/td&gt;
+      &lt;td&gt;传智播客-前端与移动开发学院&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;javascrip:;&quot; class=&quot;get&quot;&gt;DELETE&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;!-- &lt;td&gt;&lt;input type=&quot;checkbox&quot;/&gt;&lt;/td&gt; --&gt;
+      &lt;td&gt;css&lt;/td&gt;
+      &lt;td&gt;传智播客-前端与移动开发学院&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;javascrip:;&quot; class=&quot;get&quot;&gt;DELETE&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;!-- &lt;td&gt;&lt;input type=&quot;checkbox&quot;/&gt;&lt;/td&gt; --&gt;
+      &lt;td&gt;html&lt;/td&gt;
+      &lt;td&gt;传智播客-前端与移动开发学院&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;javascrip:;&quot; class=&quot;get&quot;&gt;DELETE&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;jQuery&lt;/td&gt;
+      &lt;td&gt;传智播客-前端与移动开发学院&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;javascrip:;&quot; class=&quot;get&quot;&gt;DELETE&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre><pre><code class="lang-javascript">
+&lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  $(function(){
+    // 清空内容
+    $(&#39;#btn&#39;).on(&#39;click&#39;,function(){
+        $(&#39;#j_tb&#39;).empty()
+    })
+    // 添加数据
+    $(&quot;#btnAdd&quot;).on(&#39;click&#39;,function(){
+        var $tr=$(&#39;&lt;tr&gt;&lt;td&gt;JavaScript&lt;/td&gt;&lt;td&gt;传智播客-前端与移动开发学院&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;javascrip:;&quot; class=&quot;get&quot;&gt;DELETE&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#39;)
+        $(&#39;#j_tb&#39;).append($tr)
+    })
+    // 给delete注册委托事件
+    $(&#39;#j_tb&#39;).on(&quot;click&quot;,&#39;a&#39;,function(){
+        $(this).parents(&#39;tr&#39;).remove();
+    })
+
+  });
+&lt;/script&gt;
+</code></pre>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
