@@ -178,7 +178,7 @@ $('div').off("click",'p')
       height: 3000px;
     }
   </style>
-```
+ ```
 
 ```html
 <div></div>
@@ -192,7 +192,7 @@ $('div').off("click",'p')
   <script>
     $(".lazy").lazyload();
   </script>
-  ```
+```
 
 #### jquery插件封装的原理
 > `$.fn.pluginName=function(){}`
@@ -233,4 +233,3 @@ $.fn.drag = function() {
 ```
 
 
-  
