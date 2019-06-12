@@ -163,7 +163,7 @@
 ```
 >>4.1 小米手风琴效果案例
 >>> [从这里获取代码](http://github.com)
->> jquery动画队列
+>>5. jquery动画队列
 >>> 1. jquery为了保证动画不会丢失，使用队列的形式，依次执行动画
 >>> 2. 所以只要你触发动画事件，就相当于向队列添加一个动画任务,直到执行完成
 ``` css
@@ -204,3 +204,33 @@
 >> 6. stop()停止动画
 >>> 1. 参数一：是否清除被选元素所有加入队列的动画？true/false，默认false
 >>> 2. 参数二: 是否直接跳到最后的执行结果？true/false,默认false
+>>> 3. **如果参数stop(true,true)  第一参数是true动画队列会被清除，所以即使第二参数也是true,但因为动画队列被清除后没有了后续动画也就执行不到最终的效果**
+```css
+ <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+  </style>
+```
+```html
+  <button>开始</button>
+  <button>停止</button>
+```
+```javascript
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function(){
+      $('button').eq(0).click(function() {
+        $('div').animate({left: 400}).animate({width: 300}).animate({height: 300}).animate({borderRadius: 150}) 
+      })
+      $('button').eq(1).click(function() {
+        $('div').stop(false, true);
+      })
+    });
+  </script>
+```
+
+>> 7. 自定义动画综合案例
+>>> [旋转木马案例的源码从这里取](http://github.com)

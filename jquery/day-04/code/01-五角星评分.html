@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* ul {
+       margin: 50px auto;
+    }  */
+
+        li {
+            font-size: 50px;
+            float: left;
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 鼠标悬浮到li,当前li以及之前的兄弟成员需要被选中
+            // 鼠标离开恢复空心
+            // 鼠标点击当前对象以及之前的兄弟元素被选中
+            var idx = -1
+            $('li').mouseenter(function () {
+                console.log($(this).text("★").prevAll().text("★"));
+
+                $(this).text("★").prevAll().text("★").end().nextAll().text("☆")
+            })
+            $('li').mouseleave(function () {
+                $('li').text('☆')
+                if (idx >= 0) {
+                    $('li').eq(idx).text('★').prevAll().text("★")
+                }
+
+            })
+            $('li').click(function () {
+                idx = $(this).index()
+            })
+
+        });
+    </script>
+</body>
+
+</html>

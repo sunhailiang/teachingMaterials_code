@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+    
+    img {
+      vertical-align: top;
+    }
+    
+    .main {
+      margin: 10px auto 0;
+      width: 1000px;
+    }
+    
+    .fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  </style>
+  
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    // 1. $(window).scroll()
+    // 2. 一旦卷入高度大于等于#topPart的高度，#navBar设置固定定位，否则就是恢复原位
+    $(window).scroll(function(){
+      if($(window).scrollTop()>=$("#topPart").height()){
+        $('#navBar').addClass('fixed')
+      }else{
+        $('#navBar').removeClass('fixed')
+      }
+    })
+  </script>
+
+</head>
+<body>
+<div class="top" id="topPart">
+  <img src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="navBar">
+  <img src="images/nav.png" alt=""/>
+</div>
+<div class="main" id="mainPart">
+  <img src="images/main.png" alt=""/>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            padding: 10px;
+            background: red;
+            border: 10px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        // height
+        console.log('height', $('div').height());
+        console.log('innerHeight', $('div').innerHeight());
+        console.log('outerHeight', $('div').outerHeight(true));
+        // width
+        console.log('width', $('div').width());
+        console.log('innerWidth', $('div').innerWidth());
+        console.log('outerWidth', $('div').outerWidth(true));
+    </script>
+</body>
+
+</html>

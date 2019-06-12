@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        height: 400px;
+        width: 400px;
+        background-color: seagreen;
+        margin-top: 10px
+    }
+    .child{
+     height: 100px;
+     width: 100px;
+     background-color: rebeccapurple
+    }
+    </style>
+</head>
+<body>
+    <div id="test">
+        <div class="child"></div>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+     $('#test').click(function(){
+         console.log('呵呵哒~');  
+     })
+     // 参数默认false，只克隆元素
+     $('#test').clone().appendTo("body")
+      // 参数true，克隆包括事件
+     $('#test').clone(true).appendTo("body")
+    </script>
+</body>
+</html>

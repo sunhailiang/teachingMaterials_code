@@ -9,7 +9,7 @@
     div {
       width: 400px;
       height: 400px;
-      display: none;
+      /* display: none; */
       background-color: pink;
     }
   </style>
@@ -21,12 +21,11 @@
   <script src="jquery-1.12.4.js"></script>
   <script>
     $(function(){
-      
       $('button').eq(0).click(function() {
-        $('div').stop(true).slideDown(2000);
+        $('div').animate({left: 400}).animate({width: 300}).animate({height: 300}).animate({borderRadius: 150}) 
       })
       $('button').eq(1).click(function() {
-        $('div').stop(false, false);
+        $('div').stop(true, true);
       })
     });
   </script>

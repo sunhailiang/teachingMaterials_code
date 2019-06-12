@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            height: 4000px;
+            width: 4000px;
+        }
+
+        button {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button>回到顶部</button>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                var scrollTop = $(window).scrollTop()
+                var scrollLeft = $(window).scrollLeft()
+                var pageYOffset = window.pageYOffset
+                var pageXOffset = window.pageXOffset
+                console.log("scrollTop", scrollTop);
+                console.log("scrollLeft", scrollLeft);
+                console.log("pageYOffset", pageYOffset) 
+                console.log("pageXOffset", pageXOffset)
+                $('button').click(function () {
+                   //$(window).scrollTop(0)  // 设置卷曲的值
+                //    document.documentElement.scrollTop=0
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
