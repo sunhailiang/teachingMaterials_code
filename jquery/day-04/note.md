@@ -1,4 +1,4 @@
-### 事件解绑
+# 事件解绑
 1. unbind方式（不用）
 ```js
 $(selector).unbind(); //解绑所有的事件
@@ -21,7 +21,7 @@ $('div').off("click",'p')
 ('div').off("click",'**')
 ```
 
-### 触发事件
+# 触发事件
 
 ```html
   <button>我是一个按钮</button>
@@ -46,7 +46,7 @@ $('div').off("click",'p')
   </script>
 ```
 
-### jquery事件对象 event
+# jquery事件对象 event
 
 1. jQuery事件对象其实就是js事件对象的一个封装，处理了兼容性。
 ```html
@@ -70,7 +70,7 @@ $('div').off("click",'p')
   </script>
 ```
 
-### jquery链式编程
+#jquery链式编程
 
 1. 在jquery中允许我们连续链装的调用jquery的方法
 2. 但是要求链式编程中每次函数执行完都要返回原始对象
@@ -136,7 +136,7 @@ $('div').off("click",'p')
     </script>
 ```
 
-### 隐式迭代的概念
+# 隐式迭代的概念
 
 1. 隐式迭代：jquery对象不需要自己写for循环，jquery内部会自动遍历 
    1. jquery设置操作：内部自动遍历，所有元素都会被设置同样的值，如果需要设置不同的值，就需要自己处理循环
@@ -144,18 +144,18 @@ $('div').off("click",'p')
 2. 显示迭代：1.each()  // 参数一：内部dom元素的下标，参数二：dom元素，可以用this直接获取
 3. 可以用for主动循环元素
 
-### 多库共存
+# 多库共存
 
 1. jQuery也是jquery文件暴露的一个对象，可当作$使用
 2. $是jquery文件的暴露的第二个对象
 3. 如果$冲突可以用jQuery替换
 4. 也可以使用$.noConflic()放弃$控制权，使用 **自定变量** 接收该方法返回的对象替代$
 
-### jquery插件
+# jquery插件
 
 1. 依赖jquery开发的插件
 
-### jquery.color库的使用
+# jquery.color库的使用
 
 ```css
   <style>
@@ -182,7 +182,7 @@ $('div').off("click",'p')
   </script>
 ```
 
-### jquery.lazyload库的使用
+# jquery.lazyload库的使用
 
  ```css
   <style>
@@ -205,11 +205,11 @@ $('div').off("click",'p')
     $(".lazy").lazyload();
   </script>
 ```
-### jquery插件封装的原理
+# jquery插件封装的原理
 
 `$.fn.pluginName=function(){}`
 
-###　封装一个小插件
+#　封装一个小插件
 
 ```js
 $.fn.bgc = function(color) {
@@ -219,7 +219,7 @@ $.fn.bgc = function(color) {
 }
 ```
 
-### 封装一个拖拽插件
+# 封装一个拖拽插件
 
 ```js
 $.fn.drag = function() {

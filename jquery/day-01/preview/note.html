@@ -1,7 +1,7 @@
 <html>
   <head>
 	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>i5ting_ztree_toc:node</title>
+    <title>i5ting_ztree_toc:note</title>
 		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
 		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
 		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
@@ -65,8 +65,8 @@
 				</div>
         <div id='readme' style='width:70%;margin-left:20%;'>
           	<article class='markdown-body'>
-            	<h3 id="jquery-">jQuery基础认知</h3>
-<h4 id="1-1-jquery-">1.1为什么要学习jquery?</h4>
+            	<h1 id="jquery-">jquery基础</h1>
+<h2 id="1-jquery-">1 为什么要学习jquery?</h2>
 <p> <strong>先来看一个案例(点击元素展示隐藏)</strong></p>
 <pre><code class="lang-css">&lt;style&gt;
         div {
@@ -104,7 +104,7 @@
         //3、假设我想给元素展示加一个展开的动画呢？再复杂一点的动画呢？
     &lt;/script&gt;
 </code></pre>
-<h4 id="1-2-jquery">1.2 体验jquery</h4>
+<h2 id="2-jquery">2 体验jquery</h2>
 <pre><code class="lang-css">    &lt;style&gt;
         div {
             height: 100px;
@@ -134,15 +134,15 @@
         // 2、不需要写 document.getElementById 等等复杂写法了
     &lt;/script&gt;
 </code></pre>
-<h4 id="1-3-jquery-">1.3 学习使用jquery的好处</h4>
+<h2 id="3-jquery-">3 学习使用jquery的好处</h2>
 <p>   1、不需要考虑浏览器的兼容性问题
    2、jquery隐式迭代特性不需要再写繁琐的for循环
    3、获取元素的方式简单多样，不需要原生js那么繁琐
    4、提供一些列动画相关的函数,直接使用，简洁高效</p>
-<h4 id="1-4-jquery-">1.4 jquery是什么？</h4>
+<h2 id="4-jquery-">4 jquery是什么？</h2>
 <ol>
 <li>官方网址：<a href="http://jquery.com/">jQuery官方网站</a></li>
-<li>一个快速、小巧、功能丰富的JavaScript库<h4 id="1-5-jquery-">1.5 jquery的特点是什么？</h4>
+<li>一个快速、小巧、功能丰富的JavaScript库<h2 id="5-jquery-">5 jquery的特点是什么？</h2>
 </li>
 <li><strong>特点</strong>：
 快速：jquery内部实现很多功能丰富的函数，我们只需要直接调用-开发快，而且多次迭代使得jquery的代码性能方面处理的相对优越-速度快
@@ -155,7 +155,7 @@
 <li>1.x 兼容IE678(jquery最受欢迎的特色：处理浏览器的兼容性)</li>
 <li>2.x 不兼容IE678</li>
 <li>3.x 不兼容IE678</li>
-<li>如今还在使用jquery绝大部分还在用1.x的版本<h4 id="1-6-jquery-">1.6 jquery的使用步骤</h4>
+<li>如今还在使用jquery绝大部分还在用1.x的版本<h2 id="6-jquery-">6 jquery的使用步骤</h2>
 </li>
 </ol>
 </li>
@@ -174,7 +174,7 @@
 
 })
 </code></pre>
-<h4 id="1-7-jquery-">1.7 jquery入口函数</h4>
+<h2 id="7-jquery-">7 jquery入口函数</h2>
 </li>
 <li>写法一<pre><code class="lang-javascript">$(document).ready(function(){//直观解析(document)文档(此处文档指页面元素)加载完成(ready)执行函数
 // 功能代码
@@ -200,80 +200,72 @@
 </ol>
 </li>
 </ol>
-<h4 id="1-8-jquery-dom-">1.8 jquery对象和dom对象</h4>
-<ol>
-<li><p>基本概念</p>
+<h1 id="8-jquery-dom-">8 jquery对象和dom对象</h1>
+<h2 id="-">基本概念</h2>
 <ol>
 <li>使用js方法获取页面的元素返回的对象就是dom对象</li>
 <li>使用jquery方法获取页面元素的返回的对象就是jquery对象</li>
 <li>两者联系：jquery对象内部是一个伪数组，内部存放就是dom对象</li>
 </ol>
-</li>
-<li><p>jquery对象和js对象的区别
-jquery对象不能直接使用dom的方法，dom对象也不能使用jquery对象的方法</p>
-</li>
-<li><p>dom对象转换成jquery对象
-DomObj+$()=&gt;$(DomObj)  // 只需要用$()包住dom对象即可</p>
-</li>
-<li><p>jquery对象转dom对象</p>
+<h2 id="jquery-js-">jquery对象和js对象的区别</h2>
+<p>   jquery对象不能直接使用dom的方法，dom对象也不能使用jquery对象的方法</p>
+<h2 id="dom-jquery-">dom对象转换成jquery对象</h2>
+<p>   DomObj+$()=&gt;$(DomObj)  // 只需要用$()包住dom对象即可</p>
+<h2 id="jquery-dom-">jquery对象转dom对象</h2>
 <ol>
 <li>方法一：<code>$(&#39;li&#39;).get(1)</code></li>
 <li>方法二：<code>$(&#39;li&#39;)[1]</code></li>
 <li>解析：jquery对象是dom对象的合集，是一个伪数组，我们只需要从伪数组中取出dom即可</li>
 </ol>
-</li>
-<li><p><strong>隔行变色案例</strong>-(jquery对象-&gt;dom对象)</p>
-<pre><code class="lang-html">&lt;ul&gt;
-     &lt;li&gt;1&lt;/li&gt;
-     &lt;li&gt;2&lt;/li&gt;
-     &lt;li&gt;3&lt;/li&gt;
-     &lt;li&gt;4&lt;/li&gt;
-     &lt;li&gt;5&lt;/li&gt;
-     &lt;li&gt;6&lt;/li&gt;
-     &lt;li&gt;7&lt;/li&gt;
-     &lt;li&gt;8&lt;/li&gt;
- &lt;/ul&gt;
+<h2 id="-demo-jquery-dom-">隔行变色demo -(jquery对象-&gt;dom对象)</h2>
+<pre><code class="lang-html"> &lt;ul&gt;
+        &lt;li&gt;1&lt;/li&gt;
+        &lt;li&gt;2&lt;/li&gt;
+        &lt;li&gt;3&lt;/li&gt;
+        &lt;li&gt;4&lt;/li&gt;
+        &lt;li&gt;5&lt;/li&gt;
+        &lt;li&gt;6&lt;/li&gt;
+        &lt;li&gt;7&lt;/li&gt;
+        &lt;li&gt;8&lt;/li&gt;
+    &lt;/ul&gt;
 </code></pre>
-<pre><code class="lang-javascript">&lt;script src=&quot;jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
- &lt;script&gt;
-     // jquery对象
-     var $li = $(&#39;li&#39;)
-     for (var i = 0; i &lt; $li.length; i++) {
-         if (i % 2 == 0) {
-             //$li[i] dom对象 
-             $li[i].style.backgroundColor=&#39;red&#39;
-         }else{
-             $li[i].style.backgroundColor=&#39;green&#39;
-         }
-     }
- &lt;/script&gt;
+<pre><code class="lang-javascript">  &lt;script src=&quot;jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        // jquery对象
+        var $li = $(&#39;li&#39;)
+        for (var i = 0; i &lt; $li.length; i++) {
+            if (i % 2 == 0) {
+                //$li[i] dom对象 
+                $li[i].style.backgroundColor=&#39;red&#39;
+            }else{
+                $li[i].style.backgroundColor=&#39;green&#39;
+            }
+        }
+    &lt;/script&gt;
 </code></pre>
-</li>
-<li><p><strong>开关灯案例</strong>-(jquery对象-&gt;dom对象)</p>
-<pre><code class="lang-html"> &lt;button&gt;开灯&lt;/button&gt;
- &lt;button&gt;关灯&lt;/button&gt;
+<h2 id="-jquery-dom-">开关灯案例-(jquery对象-&gt;dom对象)</h2>
+<pre><code class="lang-html">    &lt;button&gt;开灯&lt;/button&gt;
+    &lt;button&gt;关灯&lt;/button&gt;
 </code></pre>
-<pre><code class="lang-javascript"> &lt;script src=&quot;jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
- &lt;script&gt;
-   var $btn=$(&#39;button&#39;)
-   // 直接通过下表取出dom
-   $btn[0].onclick=function(){
-       $(&#39;body&#39;)[0].style.backgroundColor=&quot;white&quot;
-   }
-   $btn[1].onclick=function(){
-       $(&#39;body&#39;)[0].style.backgroundColor=&quot;black&quot;
-   }
- &lt;/script&gt;
+<pre><code class="lang-javascript">    &lt;script src=&quot;jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      var $btn=$(&#39;button&#39;)
+      // 直接通过下表取出dom
+      $btn[0].onclick=function(){
+          $(&#39;body&#39;)[0].style.backgroundColor=&quot;white&quot;
+      }
+      $btn[1].onclick=function(){
+          $(&#39;body&#39;)[0].style.backgroundColor=&quot;black&quot;
+      }
+    &lt;/script&gt;
 </code></pre>
-<h4 id="1-9-jquery-">1.9 jquery选择器</h4>
-</li>
-<li>什么是jquery选择器？<ol>
+<h1 id="1-9-jquery-">1.9 jquery选择器</h1>
+<h2 id="1-jquery-">1. 什么是jquery选择器？</h2>
+<ol>
 <li>jquery为我们提供的一组方法，目的是让我们更加方便的获取到页面的元素</li>
 <li>jquery兼容了几乎所有的css的选择器，也添加了更多复杂的选择器</li>
-<li>jquery的选择器很多，所以获取一个元素的方式就不止一种，所以我们常用的选择器并不多</li>
-</ol>
-</li>
-<li>回顾一下css的选择器<blockquote>
+<li>jquery的选择器很多，所以获取一个元素的方式就不止一种，所以我们常用的选择器并不多<h2 id="2-css-">2.  回顾一下css的选择器</h2>
+<blockquote>
 <p>jQuery完全兼容css选择器</p>
 </blockquote>
 </li>
@@ -327,12 +319,10 @@ DomObj+$()=&gt;$(DomObj)  // 只需要用$()包住dom对象即可</p>
 <blockquote>
 <p>跟CSS的选择器一模一样。</p>
 </blockquote>
-<ol start="3">
-<li>过滤选择器<blockquote>
+<h2 id="3-">3. 过滤选择器</h2>
+<blockquote>
 <p><strong>注意</strong>这类选择器都带 <strong>冒号:</strong></p>
 </blockquote>
-</li>
-</ol>
 <table>
 <thead>
 <tr>
@@ -369,12 +359,10 @@ DomObj+$()=&gt;$(DomObj)  // 只需要用$()包住dom对象即可</p>
 </tr>
 </tbody>
 </table>
-<ol start="4">
-<li>筛选选择器(jquery方法)<blockquote>
+<h2 id="4-jquery-">4. 筛选选择器(jquery方法)</h2>
+<blockquote>
 <p>筛选选择器的功能与过滤选择器有点类似，但是用法不一样，<code>筛选选择器</code>主要是方法。</p>
 </blockquote>
-</li>
-</ol>
 <table>
 <thead>
 <tr>
@@ -421,17 +409,11 @@ DomObj+$()=&gt;$(DomObj)  // 只需要用$()包住dom对象即可</p>
 </tr>
 </tbody>
 </table>
-<ol start="5">
-<li>下拉菜单案例</li>
-</ol>
+<h2 id="5-">5. 下拉菜单案例</h2>
 <p><a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/06-%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95">children()查找子元素 children(selector)查找指定子元素mouseover鼠标经过事mouseout:鼠标离开事件mouseenter:鼠标进入事件mouseleave：鼠标离开事件</a></p>
-<ol start="6">
-<li>突出展示案例</li>
-</ol>
+<h2 id="6-">6. 突出展示案例</h2>
 <p><a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/07-%E7%AA%81%E5%87%BA%E5%B1%95%E7%A4%BA">find(selector)找到指定元素，siblings()找到所有兄弟元素</a></p>
-<ol start="7">
-<li>手风琴案例</li>
-</ol>
+<h2 id="7-">7. 手风琴案例</h2>
 <pre><code class="lang-css">  &lt;style type=&quot;text/css&quot;&gt;
         * {
             padding: 0;
@@ -497,11 +479,9 @@ DomObj+$()=&gt;$(DomObj)  // 只需要用$()包住dom对象即可</p>
         });
  &lt;/script&gt;
 </code></pre>
-<ol start="9">
-<li>淘宝精品案例
-<a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/09-%E6%B7%98%E5%AE%9D%E7%B2%BE%E5%93%81">.eq(index)根据下标获得指定jquery对象 .get(index)根据下标获得dom对象index()方法获得jquery对象的索引值</a></li>
-</ol>
-<h4 id="2-0-jquery-">2.0 jquery操作样式</h4>
+<h2 id="9-">9. 淘宝精品案例</h2>
+<p><a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/09-%E6%B7%98%E5%AE%9D%E7%B2%BE%E5%93%81">.eq(index)根据下标获得指定jquery对象 .get(index)根据下标获得dom对象index()方法获得jquery对象的索引值</a></p>
+<p>2.0 jquery操作样式</p>
 <ol>
 <li>style：行内样式</li>
 <li>class：类样式（主要方式）</li>
@@ -541,7 +521,8 @@ console.log(&quot;样式的值&quot;,sv)
 </ol>
 </li>
 </ol>
-<h4 id="2-1-jquery-class">2.1 jquery操作class</h4>
+<h1 id="jquery-class">jquery操作class</h1>
+<h2 id="-">常用方法介绍</h2>
 <pre><code class="lang-css">  &lt;style&gt;
     .base {
       background-color: pink;
@@ -572,11 +553,11 @@ console.log(&quot;样式的值&quot;,sv)
 </li>
 <li>hasClass(name): 是否有某个类名<pre><code class="lang-javascript">$(&#39;div&#39;).hasClass(&#39;red&#39;) // 返回true或者false，如果有多个元素只判断&quot;第一个&quot;
 </code></pre>
-</li>
-<li>淘宝tab栏切换案例
+<h2 id="-tab-">淘宝tab栏切换案例</h2>
 <a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/tab%E6%A0%8F%E5%88%87%E6%8D%A2">addClass()添加了名siblings()获取兄弟节点index()获取索引值removeClass()移除class</a></li>
 </ol>
-<h4 id="2-2-jquery-">2.2 jquery操作属性</h4>
+<h1 id="3-jquery-">3. jquery操作属性</h1>
+<h2 id="-">常用方法</h2>
 <pre><code class="lang-html"> &lt;img src=&quot;imgs/01.jpg&quot; alt=&quot;&quot;&gt;
  &lt;img src=&quot;imgs/02.jpg&quot; alt=&quot;&quot;&gt;
 </code></pre>
@@ -593,156 +574,152 @@ console.log(&quot;样式的值&quot;,sv)
 <li>removeAttr() 移除单个或者多个属性<pre><code class="lang-javascript">$(&#39;img&#39;).removeAttr(&#39;alt&#39;)  // 移除单个属性
 $(&#39;img&#39;).removeAttr(&#39;alt title&#39;) // 移除多个属性中间用&quot;空格隔开&quot;
 </code></pre>
-</li>
-<li><p>美女相册案例
-<a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/13-%E7%BE%8E%E5%A5%B3%E7%9B%B8%E5%86%8C">点击获取案例</a></p>
-</li>
-<li><p>布尔类型的属性操作</p>
-<pre><code class="lang-html">&lt;!-- 这段代码使用attr操作布尔类型的属性有Bug --&gt;
+<h2 id="3-">3. 美女相册案例</h2>
+<a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/13-%E7%BE%8E%E5%A5%B3%E7%9B%B8%E5%86%8C">点击获取案例</a></li>
+</ol>
+<h1 id="4-">4. 布尔类型的属性操作</h1>
+<h2 id="attr-bug">attr操作布尔属性的bug</h2>
+<pre><code class="lang-html"> &lt;!-- 这段代码使用attr操作布尔类型的属性有Bug --&gt;
 &lt;button&gt;选中&lt;/button&gt;
 &lt;button&gt;不选中&lt;/button&gt;
 &lt;input type=&quot;checkbox&quot;&gt;
 </code></pre>
-<pre><code class="lang-javascript">    $(&#39;button:first&#39;).click(function () {
-         $(&#39;input&#39;).attr(&#39;checked&#39;, true);
-         console.log($(&#39;input&#39;).attr(&#39;checked&#39;));
-     });
-     $(&#39;button:last&#39;).click(function () {
-         $(&#39;input&#39;).attr(&#39;checked&#39;, false);
-         console.log($(&#39;input&#39;).attr(&#39;checked&#39;));  // undefined
-     });
+<pre><code class="lang-javascript">       $(&#39;button:first&#39;).click(function () {
+            $(&#39;input&#39;).attr(&#39;checked&#39;, true);
+            console.log($(&#39;input&#39;).attr(&#39;checked&#39;));
+        });
+        $(&#39;button:last&#39;).click(function () {
+            $(&#39;input&#39;).attr(&#39;checked&#39;, false);
+            console.log($(&#39;input&#39;).attr(&#39;checked&#39;));  // undefined
+        });
 </code></pre>
+<h2 id="prop-">prop()</h2>
 <p><strong>1.6版本以后凡是布尔类型属性如：checked disabled selected不在使用attr来操作，换成prop</strong></p>
-<blockquote>
-<p>换成prop
-<code>`</code>javascript
-   $(&#39;button:first&#39;).click(function() {</p>
-<pre><code> $(&#39;input&#39;).prop(&#39;checked&#39;, true);
- console.log($(&#39;input&#39;).prop(&#39;checked&#39;));
-</code></pre><p>   });</p>
-</blockquote>
-<p>   $(&#39;button:last&#39;).click(function() {</p>
-<pre><code> $(&#39;input&#39;).prop(&#39;checked&#39;, false);
- console.log($(&#39;input&#39;).prop(&#39;checked&#39;));
-</code></pre><p>   });
-<code>`</code></p>
+<h3 id="prop-demo">prop()的 demo</h3>
+<pre><code class="lang-javascript">      $(&#39;button:first&#39;).click(function() {
+        $(&#39;input&#39;).prop(&#39;checked&#39;, true);
+        console.log($(&#39;input&#39;).prop(&#39;checked&#39;));
+      });
+
+      $(&#39;button:last&#39;).click(function() {
+        $(&#39;input&#39;).prop(&#39;checked&#39;, false);
+        console.log($(&#39;input&#39;).prop(&#39;checked&#39;));
+      });
+</code></pre>
 <blockquote>
 <p>功能正常</p>
 </blockquote>
-</li>
-<li><p>表格全选案例</p>
-<pre><code class="lang-css"> &lt;style&gt;
-     * {
-         padding: 0;
-         margin: 0;
-     }
+<h2 id="-">表格全选案例</h2>
+<pre><code class="lang-css">    &lt;style&gt;
+        * {
+            padding: 0;
+            margin: 0;
+        }
 
-     .wrap {
-         width: 300px;
-         margin: 100px auto 0;
-     }
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
 
-     table {
-         border-collapse: collapse;
-         border-spacing: 0;
-         border: 1px solid #c0c0c0;
-         width: 300px;
-     }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 300px;
+        }
 
-     th,
-     td {
-         border: 1px solid #d0d0d0;
-         color: #404060;
-         padding: 10px;
-     }
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
 
-     th {
-         background-color: #09c;
-         font: bold 16px &quot;微软雅黑&quot;;
-         color: #fff;
-     }
+        th {
+            background-color: #09c;
+            font: bold 16px &quot;微软雅黑&quot;;
+            color: #fff;
+        }
 
-     td {
-         font: 14px &quot;微软雅黑&quot;;
-     }
+        td {
+            font: 14px &quot;微软雅黑&quot;;
+        }
 
-     tbody tr {
-         background-color: #f0f0f0;
-         text-align: center;
-     }
+        tbody tr {
+            background-color: #f0f0f0;
+            text-align: center;
+        }
 
-     tbody tr:hover {
-         cursor: pointer;
-         background-color: #fafafa;
-     }
- &lt;/style&gt;
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    &lt;/style&gt;
 </code></pre>
-<pre><code class="lang-html"> &lt;div class=&quot;wrap&quot;&gt;
-     &lt;table&gt;
-         &lt;thead&gt;
-             &lt;tr&gt;
-                 &lt;th&gt;
-                     &lt;input type=&quot;checkbox&quot; id=&quot;all&quot; /&gt;
-                 &lt;/th&gt;
-                 &lt;th&gt;菜名&lt;/th&gt;
-                 &lt;th&gt;饭店&lt;/th&gt;
-             &lt;/tr&gt;
-         &lt;/thead&gt;
-         &lt;tbody id=&quot;tb&quot;&gt;
-             &lt;tr&gt;
-                 &lt;td&gt;
-                     &lt;input type=&quot;checkbox&quot; /&gt;
-                 &lt;/td&gt;
-                 &lt;td&gt;红烧肉&lt;/td&gt;
-                 &lt;td&gt;田老师&lt;/td&gt;
-             &lt;/tr&gt;
-             &lt;tr&gt;
-                 &lt;td&gt;
-                     &lt;input type=&quot;checkbox&quot; /&gt;
-                 &lt;/td&gt;
-                 &lt;td&gt;西红柿鸡蛋&lt;/td&gt;
-                 &lt;td&gt;田老师&lt;/td&gt;
-             &lt;/tr&gt;
-             &lt;tr&gt;
-                 &lt;td&gt;
-                     &lt;input type=&quot;checkbox&quot; /&gt;
-                 &lt;/td&gt;
-                 &lt;td&gt;红烧狮子头&lt;/td&gt;
-                 &lt;td&gt;田老师&lt;/td&gt;
-             &lt;/tr&gt;
-             &lt;tr&gt;
-                 &lt;td&gt;
-                     &lt;input type=&quot;checkbox&quot; /&gt;
-                 &lt;/td&gt;
-                 &lt;td&gt;日式肥牛&lt;/td&gt;
-                 &lt;td&gt;田老师&lt;/td&gt;
-             &lt;/tr&gt;
-         &lt;/tbody&gt;
-     &lt;/table&gt;
- &lt;/div&gt;
+<pre><code class="lang-html">    &lt;div class=&quot;wrap&quot;&gt;
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;
+                        &lt;input type=&quot;checkbox&quot; id=&quot;all&quot; /&gt;
+                    &lt;/th&gt;
+                    &lt;th&gt;菜名&lt;/th&gt;
+                    &lt;th&gt;饭店&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody id=&quot;tb&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;
+                        &lt;input type=&quot;checkbox&quot; /&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;红烧肉&lt;/td&gt;
+                    &lt;td&gt;田老师&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;
+                        &lt;input type=&quot;checkbox&quot; /&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;西红柿鸡蛋&lt;/td&gt;
+                    &lt;td&gt;田老师&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;
+                        &lt;input type=&quot;checkbox&quot; /&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;红烧狮子头&lt;/td&gt;
+                    &lt;td&gt;田老师&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;
+                        &lt;input type=&quot;checkbox&quot; /&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;日式肥牛&lt;/td&gt;
+                    &lt;td&gt;田老师&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
 </code></pre>
 <pre><code class="lang-javascript">&lt;script src=&quot;jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
- &lt;script&gt;
-     $(function () {
-         var $all = $(&#39;#all&#39;)
-         var $input = $(&quot;#tb input&quot;)
-         // 点击#all 则#tb input 属性selected全部变为true/否则全部变为false
-         $all.click(function () {
-             $input.prop(&quot;checked&quot;, $all.prop(&quot;checked&quot;))
-         })
-         // 选择#tb input 所有的input的selected都是true的时候，#all被选中，否则取消选中
-         $input.click(function () {
-             if ($(&quot;#tb input:checked&quot;).length == $input.length) {
-                 $all.prop(&quot;checked&quot;, true)
-             } else {
-                 $all.prop(&quot;checked&quot;, false)
-             }
-         })
-     });
- &lt;/script&gt;
+    &lt;script&gt;
+        $(function () {
+            var $all = $(&#39;#all&#39;)
+            var $input = $(&quot;#tb input&quot;)
+            // 点击#all 则#tb input 属性selected全部变为true/否则全部变为false
+            $all.click(function () {
+                $input.prop(&quot;checked&quot;, $all.prop(&quot;checked&quot;))
+            })
+            // 选择#tb input 所有的input的selected都是true的时候，#all被选中，否则取消选中
+            $input.click(function () {
+                if ($(&quot;#tb input:checked&quot;).length == $input.length) {
+                    $all.prop(&quot;checked&quot;, true)
+                } else {
+                    $all.prop(&quot;checked&quot;, false)
+                }
+            })
+        });
+    &lt;/script&gt;
 </code></pre>
-</li>
-</ol>
 
           	</article>
         </div>

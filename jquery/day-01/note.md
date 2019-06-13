@@ -1,5 +1,7 @@
-### jQuery基础认知
-#### 1.1为什么要学习jquery?
+
+# jquery基础
+
+## 1 为什么要学习jquery?
  **先来看一个案例(点击元素展示隐藏)**
 ```css
 <style>
@@ -41,7 +43,7 @@
     </script>
 ```
 
-#### 1.2 体验jquery
+## 2 体验jquery
 ``` css
     <style>
         div {
@@ -74,16 +76,16 @@
         // 2、不需要写 document.getElementById 等等复杂写法了
     </script>
 ```
-#### 1.3 学习使用jquery的好处
+## 3 学习使用jquery的好处
    1、不需要考虑浏览器的兼容性问题
    2、jquery隐式迭代特性不需要再写繁琐的for循环
    3、获取元素的方式简单多样，不需要原生js那么繁琐
    4、提供一些列动画相关的函数,直接使用，简洁高效
 
-#### 1.4 jquery是什么？
+## 4 jquery是什么？
 1. 官方网址：[jQuery官方网站](http://jquery.com/)
 2. 一个快速、小巧、功能丰富的JavaScript库
-#### 1.5 jquery的特点是什么？
+## 5 jquery的特点是什么？
 1. **特点**：
 快速：jquery内部实现很多功能丰富的函数，我们只需要直接调用-开发快，而且多次迭代使得jquery的代码性能方面处理的相对优越-速度快
 小巧：1.x 95kb  2.x 84kb  3.x 85kb
@@ -96,7 +98,7 @@
    2. 2.x 不兼容IE678
    3. 3.x 不兼容IE678
    4. 如今还在使用jquery绝大部分还在用1.x的版本
-#### 1.6 jquery的使用步骤
+## 6 jquery的使用步骤
 1. jquery引入
 ` <script src="jquery-1.12.4.min.js"></script>`
 2. 入口函数
@@ -113,7 +115,7 @@
 
    })
 ```
-#### 1.7 jquery入口函数
+## 7 jquery入口函数
 1. 写法一
 ```javascript
 $(document).ready(function(){//直观解析(document)文档(此处文档指页面元素)加载完成(ready)执行函数
@@ -135,24 +137,24 @@ $(function(){
    2. jQuery的入口函数只会等待文档树加载完成就开始执行，并不会等待图片、文件的加载。
    3. jquery入口函数可以多次调用且不会覆盖，onload只能执行一次
 
-#### 1.8 jquery对象和dom对象
-1. 基本概念
-   1. 使用js方法获取页面的元素返回的对象就是dom对象
-   2. 使用jquery方法获取页面元素的返回的对象就是jquery对象
-   3. 两者联系：jquery对象内部是一个伪数组，内部存放就是dom对象
+# 8 jquery对象和dom对象
+ ## 基本概念
+1. 使用js方法获取页面的元素返回的对象就是dom对象
+2. 使用jquery方法获取页面元素的返回的对象就是jquery对象
+3. 两者联系：jquery对象内部是一个伪数组，内部存放就是dom对象
 
-2. jquery对象和js对象的区别
+## jquery对象和js对象的区别
    jquery对象不能直接使用dom的方法，dom对象也不能使用jquery对象的方法
 
-3. dom对象转换成jquery对象
+## dom对象转换成jquery对象
    DomObj+$()=>$(DomObj)  // 只需要用$()包住dom对象即可
 
-4. jquery对象转dom对象
+## jquery对象转dom对象
    1. 方法一：`$('li').get(1)`
    2. 方法二：`$('li')[1]`
    3. 解析：jquery对象是dom对象的合集，是一个伪数组，我们只需要从伪数组中取出dom即可
 
-5. **隔行变色案例**-(jquery对象->dom对象)
+## 隔行变色demo -(jquery对象->dom对象)
 ```html
  <ul>
         <li>1</li>
@@ -181,7 +183,7 @@ $(function(){
     </script>
 ```
 
-6. **开关灯案例**-(jquery对象->dom对象)
+##  开关灯案例-(jquery对象->dom对象)
 ```html
     <button>开灯</button>
     <button>关灯</button>
@@ -199,12 +201,12 @@ $(function(){
       }
     </script>
 ```
-#### 1.9 jquery选择器
-1. 什么是jquery选择器？
+# 1.9 jquery选择器
+## 1. 什么是jquery选择器？
    1. jquery为我们提供的一组方法，目的是让我们更加方便的获取到页面的元素
    2. jquery兼容了几乎所有的css的选择器，也添加了更多复杂的选择器
    3. jquery的选择器很多，所以获取一个元素的方式就不止一种，所以我们常用的选择器并不多
-2.  回顾一下css的选择器
+## 2.  回顾一下css的选择器
 > jQuery完全兼容css选择器
 
 | 名称    | 用法                 | 描述                              |
@@ -219,7 +221,7 @@ $(function(){
 
 > 跟CSS的选择器一模一样。
 
-3. 过滤选择器
+## 3. 过滤选择器
 > **注意**这类选择器都带 **冒号:**
 
 | 名称         | 用法                                 | 描述                                 |
@@ -229,7 +231,7 @@ $(function(){
 | :even      | $(“li:even”).css(“color”, ”red”);  | 获取到的li元素中，选择索引号为偶数的元素              |
 | :first     | $(“li:first”).css(“color”, ”red”); | 获取到的li元素中的第一个                      |
 | :last      | $(“li:last”).css(“color”, ”red”);  | 获取到的li元素中的最后一个                     |
-4. 筛选选择器(jquery方法)
+##  4. 筛选选择器(jquery方法)
 > 筛选选择器的功能与过滤选择器有点类似，但是用法不一样，`筛选选择器`主要是方法。
 
 | 名称                 | 用法                          | 描述                           |
@@ -242,15 +244,15 @@ $(function(){
 | next()             | $(“li”).next()              | 找下一个兄弟                       |
 | prev()             | $(“li”).prev()              | 找上一次兄弟                     |
 
-5. 下拉菜单案例
+## 5. 下拉菜单案例
 
 [children()查找子元素 children(selector)查找指定子元素mouseover鼠标经过事mouseout:鼠标离开事件mouseenter:鼠标进入事件mouseleave：鼠标离开事件](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/06-%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95)
 
-6. 突出展示案例
+## 6. 突出展示案例
 
 [find(selector)找到指定元素，siblings()找到所有兄弟元素](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/07-%E7%AA%81%E5%87%BA%E5%B1%95%E7%A4%BA)
 
-7. 手风琴案例
+## 7. 手风琴案例
 
 ```css
   <style type="text/css">
@@ -321,10 +323,10 @@ $(function(){
  </script>
 ```
 
-9. 淘宝精品案例
+## 9. 淘宝精品案例
 [.eq(index)根据下标获得指定jquery对象 .get(index)根据下标获得dom对象index()方法获得jquery对象的索引值](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/09-%E6%B7%98%E5%AE%9D%E7%B2%BE%E5%93%81)
 
-#### 2.0 jquery操作样式
+2.0 jquery操作样式
 1. style：行内样式
 2. class：类样式（主要方式）
 3. css()：采用的是行内
@@ -362,7 +364,8 @@ $(function(){
     </script>
 ```
 
-#### 2.1 jquery操作class
+#  jquery操作class
+## 常用方法介绍
 ```css
   <style>
     .base {
@@ -399,10 +402,11 @@ $(function(){
 ```javascript
   $('div').hasClass('red') // 返回true或者false，如果有多个元素只判断"第一个"
 ```
-5. 淘宝tab栏切换案例
+## 淘宝tab栏切换案例
 [addClass()添加了名siblings()获取兄弟节点index()获取索引值removeClass()移除class](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/tab%E6%A0%8F%E5%88%87%E6%8D%A2)
 
-#### 2.2 jquery操作属性
+# 3. jquery操作属性
+## 常用方法
 ```html
  <img src="imgs/01.jpg" alt="">
  <img src="imgs/02.jpg" alt="">
@@ -419,10 +423,12 @@ $(function(){
 $('img').removeAttr('alt')  // 移除单个属性
 $('img').removeAttr('alt title') // 移除多个属性中间用"空格隔开"
 ```
-3. 美女相册案例
+## 3. 美女相册案例
 [点击获取案例](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-01/code/13-%E7%BE%8E%E5%A5%B3%E7%9B%B8%E5%86%8C)
 
-4. 布尔类型的属性操作
+# 4. 布尔类型的属性操作
+
+## attr操作布尔属性的bug
 ```html
  <!-- 这段代码使用attr操作布尔类型的属性有Bug -->
 <button>选中</button>
@@ -439,8 +445,10 @@ $('img').removeAttr('alt title') // 移除多个属性中间用"空格隔开"
             console.log($('input').attr('checked'));  // undefined
         });
 ```
+## prop()
+
 **1.6版本以后凡是布尔类型属性如：checked disabled selected不在使用attr来操作，换成prop**
-> 换成prop
+### prop()的 demo
 ```javascript
       $('button:first').click(function() {
         $('input').prop('checked', true);
@@ -454,7 +462,7 @@ $('img').removeAttr('alt title') // 移除多个属性中间用"空格隔开"
 ```
 >功能正常
 
-5. 表格全选案例
+##  表格全选案例
 ```css
     <style>
         * {

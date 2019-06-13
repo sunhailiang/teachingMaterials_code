@@ -65,36 +65,36 @@
 				</div>
         <div id='readme' style='width:70%;margin-left:20%;'>
           	<article class='markdown-body'>
-            	<h3 id="jquery-">jquery节点操作</h3>
-<h4 id="-">创建节点</h4>
+            	<h1 id="jquery-">jquery节点操作</h1>
+<h2 id="-">创建节点</h2>
 <ol>
 <li><code>$()里面放html字符串</code></li>
 <li><code>$(&#39;&lt;button&gt;看我是一个按钮&lt;/button&gt;&#39;)</code></li>
 </ol>
-<h4 id="-">添加节点</h4>
-<h5 id="append-">append  给父级元素内部从后面追加子元素</h5>
+<h2 id="-">添加节点</h2>
+<h3 id="append-">append  给父级元素内部从后面追加子元素</h3>
 <pre><code class="lang-javascript">   // parent.append(child)
     $(&#39;div&#39;).append( $(&#39;&lt;p&gt;这是新建的p标签&lt;/p&gt;&#39;) );
 </code></pre>
-<h5 id="appendto-">appendTo  子元素从最后往父级元素内追加元素</h5>
+<h3 id="appendto-">appendTo  子元素从最后往父级元素内追加元素</h3>
 <pre><code class="lang-javascript">    // child.appendTo(parent)
     $(&#39;&lt;span&gt;这是个span &lt;/span&gt;&#39;).appendTo($(&#39;div&#39;));
 </code></pre>
-<h5 id="prepend-">prepend  往父级元素的子元素的最前面追加元素</h5>
+<h3 id="prepend-">prepend  往父级元素的子元素的最前面追加元素</h3>
 <pre><code class="lang-javascript">    // parent.prepend(child)
     $(&#39;div&#39;).prepend($(&#39;&lt;div&gt;这是新建的最前边？标签&lt;/div&gt;&#39;));
 </code></pre>
-<h5 id="prependto-">prependTo  元素追加到父级元素的内部元素的最前面</h5>
+<h3 id="prependto-">prependTo  元素追加到父级元素的内部元素的最前面</h3>
 <pre><code class="lang-javascript">    // child.prependTo(parent)
     $(&#39;&lt;p&gt;这是一个P&lt;/p&gt;&#39;).prependTo( $(&#39;div&#39;) );
 </code></pre>
-<h5 id="before-">before  追加到元素的前面(同级)</h5>
+<h3 id="before-">before  追加到元素的前面(同级)</h3>
 <pre><code class="lang-javascript">    $(&#39;div&#39;).before(&#39;&lt;p&gt;前面一个P&lt;/p&gt;&#39;) 
 </code></pre>
-<h5 id="after-">after   追加到元素后面(同级)</h5>
+<h3 id="after-">after   追加到元素后面(同级)</h3>
 <pre><code class="lang-javascript">    $(&#39;div&#39;).after(&#39;&lt;p&gt;后面一个P&lt;/p&gt;&#39;)
 </code></pre>
-<h5 id="-">城市选择案例</h5>
+<h3 id="-">城市选择案例</h3>
 <pre><code class="lang-css">  &lt;style&gt;
     select {
       width: 200px;
@@ -134,21 +134,21 @@
     });
   &lt;/script&gt;
 </code></pre>
-<h4 id="-">删除和清空节点</h4>
-<h5 id="remove-">remove()</h5>
+<h2 id="-">删除和清空节点</h2>
+<h3 id="remove-">remove()</h3>
 <ol>
-<li>删除自身，内部子元素一并删除<h5 id="empty-">empty()</h5>
+<li>删除自身，内部子元素一并删除<h3 id="empty-">empty()</h3>
 </li>
 <li>清空内部所有元素，不包括自身</li>
 </ol>
-<h4 id="-">克隆节点</h4>
-<h5 id="clone-">clone()</h5>
+<h2 id="-">克隆节点</h2>
+<h3 id="clone-">clone()</h3>
 <ol>
 <li>参数默认false</li>
 <li>参数false：克隆标签元素等</li>
 <li>参数true: 深度克隆 <strong>包括事件</strong></li>
 </ol>
-<h5 id="-demo-">克隆节点 demo 　</h5>
+<h3 id="-demo-">克隆节点 demo 　</h3>
 <pre><code class="lang-css">    &lt;style&gt;
     div{
         height: 400px;
@@ -178,7 +178,7 @@
      $(&#39;#test&#39;).clone(true).appendTo(&quot;body&quot;)
     &lt;/script&gt;
 </code></pre>
-<h4 id="-">发布微博案例</h4>
+<h2 id="-">发布微博案例</h2>
 <pre><code class="lang-css">  &lt;style&gt;
     * {
       margin: 0;
@@ -253,9 +253,9 @@
   });
 &lt;/script&gt;
 </code></pre>
-<h3 id="jquery-">jquery特殊属性操作</h3>
-<h4 id="val-text-textarea-">val()  设置和获取表单元素的值，如text，textarea等等</h4>
-<h5 id="-demo">搜索框体验 demo</h5>
+<h1 id="jquery-">jquery特殊属性操作</h1>
+<h2 id="val-text-textarea-">val()  设置和获取表单元素的值，如text，textarea等等</h2>
+<h3 id="-demo">搜索框体验 demo</h3>
 <pre><code class="lang-html">   &lt;input type=&quot;text&quot; value=&quot;哒哒哒~&quot;&gt;
 </code></pre>
 <pre><code class="lang-javascript">  &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
@@ -271,46 +271,46 @@
         }
     })
 </code></pre>
-<h4 id="html-text-">html()和text()</h4>
+<h2 id="html-text-">html()和text()</h2>
 <ol>
 <li>html() 相当于 innerHtml</li>
 <li>text() 相当于 innerText</li>
 </ol>
-<h4 id="width-height-innerwidth-outerwidth-innerheight-outerheight-">width()-height()-innerWidth()-outerWidth()-innerHeight()-outerHeight()</h4>
-<h5 id="width-">width()</h5>
+<h2 id="width-height-innerwidth-outerwidth-innerheight-outerheight-">width()-height()-innerWidth()-outerWidth()-innerHeight()-outerHeight()</h2>
+<h3 id="width-">width()</h3>
 <ol>
 <li>无参数：获取元素width </li>
 <li>有Number类型参数：设置width</li>
 </ol>
-<h5 id="innerwidth-">innerWidth()</h5>
+<h3 id="innerwidth-">innerWidth()</h3>
 <ol>
 <li>获取元素panding和width</li>
 </ol>
-<h5 id="oputerwidth-">oputerWidth()</h5>
+<h3 id="oputerwidth-">oputerWidth()</h3>
 <ol>
 <li>无参数，参数默认是false时：获取元素pading和border和width</li>
 <li>参数是true时：获取元素pading和border和width和margin</li>
 </ol>
-<h5 id="height-">height()</h5>
+<h3 id="height-">height()</h3>
 <ol>
 <li>无参数：获取元素高度 </li>
 <li>有Number类型的参数:设置height</li>
 </ol>
-<h5 id="innerheight-">innerHeight()</h5>
+<h3 id="innerheight-">innerHeight()</h3>
 <ol>
 <li>获取元素padding和height</li>
 </ol>
-<h5 id="outerheight-">outerHeight()</h5>
+<h3 id="outerheight-">outerHeight()</h3>
 <ol>
 <li>无参数，默认参数是false时： 获取元素padding和border和height</li>
 <li>参数是true时：获取元素padding和border和height和margin</li>
 </ol>
-<h4 id="scrolltop-scrollleft-">scrollTop()和scrollLeft()</h4>
+<h2 id="scrolltop-scrollleft-">scrollTop()和scrollLeft()</h2>
 <ol>
 <li>scrollTop() 获取被卷曲的高度, 可设置卷曲高度</li>
 <li>scrollLeft() 获取被卷曲的宽度，可设置卷曲高度</li>
 </ol>
-<h4 id="js-">js相关的屏幕滚动</h4>
+<h2 id="js-">js相关的屏幕滚动</h2>
 <ol>
 <li>window.pageYOffset</li>
 <li>window.pageXOffset  </li>
@@ -320,18 +320,18 @@
 <li>这两个属性可读可写</li>
 <li>$(window) 不支持的动画,可用$(&#39;html&#39;)</li>
 </ol>
-<h4 id="-">固定导航案例</h4>
+<h2 id="-">固定导航案例</h2>
 <p><a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-03/code/08-%E5%9B%BA%E5%AE%9A%E5%AF%BC%E8%88%AA">从这获取固定导航的代码</a></p>
-<h4 id="-">回到顶部案例</h4>
+<h2 id="-">回到顶部案例</h2>
 <p><a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-03/code/09-%E5%9B%9E%E5%88%B0%E9%A1%B6%E9%83%A8">从这获取回到顶部的代码</a></p>
-<h4 id="position-offset-">position()和offset()</h4>
+<h2 id="position-offset-">position()和offset()</h2>
 <ol>
 <li>offset方法和position方法都是用来获取盒子的位置的  left和top</li>
 <li>offset方法获取的是盒子在整个body中的位置</li>
 <li>position方法获取的盒子距离有定位的最近的父元素的位置 offsetLeft offsetTop</li>
 <li>都是返回一个对象</li>
 </ol>
-<h4 id="-">弹幕案例</h4>
+<h2 id="-">弹幕案例</h2>
 <pre><code class="lang-css">  &lt;style type=&quot;text/css&quot;&gt;
     html,
     body {
@@ -484,14 +484,14 @@
 &lt;/script&gt;
 
 </code></pre>
-<h3 id="-">事件注册</h3>
-<h4 id="-">简单注册方式</h4>
+<h1 id="-">事件注册</h1>
+<h3 id="-">简单注册方式</h3>
 <p><code>click(func) / mouseenter(handler) / mouseleave(handler)</code>
 缺点: 不能注册多个事件</p>
-<h4 id="bind-">bind注册</h4>
+<h2 id="bind-">bind注册</h2>
 <p><code>$(&quot;p&quot;).bind(&quot;click mouseenter&quot;, function(){});</code>
 缺点：不支持动态事件绑定</p>
-<h4 id="delegate-">delegate 事件委托</h4>
+<h2 id="delegate-">delegate 事件委托</h2>
 <pre><code class="lang-javascript">// 第一个参数：selector，要绑定事件的元素
 // 第二个参数：事件类型
 // 第三个参数：事件处理函数
@@ -500,27 +500,27 @@ $(&quot;.parentBox&quot;).delegate(&quot;p&quot;, &quot;click&quot;, function(){
 });
 </code></pre>
 <p>缺点：只能注册委托事件</p>
-<h4 id="on-"><strong>on注册事件(重点)</strong></h4>
+<h2 id="on-"><strong>on注册事件(重点)</strong></h2>
 <ol>
 <li>jQuery1.7之后，jQuery用on统一了所有事件的处理方法。</li>
 <li>最现代的方式，兼容zepto(移动端类似jQuery的一个库)，强烈建议使用。</li>
 </ol>
-<h5 id="on-">on注册简单事件</h5>
+<h3 id="on-">on注册简单事件</h3>
 <pre><code class="lang-javascript"> // 表示给$(selector)绑定事件，并且由自己触发，不支持动态绑定。
   $(selector).on( &quot;click&quot;, function() {});
 </code></pre>
-<h5 id="on-">on注册委托事件</h5>
+<h3 id="on-">on注册委托事件</h3>
 <pre><code class="lang-javascript">// 表示给$(selector)绑定代理事件，当必须是它的内部元素span才能触发这个事件，支持动态绑定
 $(selector).on( &quot;click&quot;,“span”, function() {});
 </code></pre>
-<h5 id="on-">on注册事件的语法</h5>
+<h3 id="on-">on注册事件的语法</h3>
 <pre><code class="lang-javascript">// 第一个参数：events，绑定事件的名称可以是由空格分隔的多个事件（标准事件或者自定义事件）
 // 第二个参数：selector, 执行事件的后代元素（可选），如果没有后代元素，那么事件将有自己执行。
 // 第三个参数：data，传递给处理函数的数据，事件触发的时候通过event.data来使用（不常使用）
 // 第四个参数：handler，事件处理函数
 $(selector).on(events[,selector][,data],handler);
 </code></pre>
-<h4 id="-">表格操作(委托事件)案例</h4>
+<h2 id="-">表格操作(委托事件)案例</h2>
 <pre><code class="lang-css">&lt;style&gt;
     * {
       padding: 0;
