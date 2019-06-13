@@ -1,38 +1,46 @@
-#### jquery节点操作
+### jquery节点操作
 
->1. 创建节点
->> $()里面放html字符串
->>> `$('<button>看我是一个按钮</button>')`
->2. 添加节点
->> 1. append  给父级元素内部从后面追加子元素
+#### 创建节点
+1. `$()里面放html字符串`
+2. `$('<button>看我是一个按钮</button>')`
+
+#### 添加节点
+
+##### append  给父级元素内部从后面追加子元素
+
 ```javascript
    // parent.append(child)
     $('div').append( $('<p>这是新建的p标签</p>') );
 ```
->> 2. appendTo  子元素从最后往父级元素内追加元素
+##### appendTo  子元素从最后往父级元素内追加元素
+
 ```javascript
     // child.appendTo(parent)
     $('<span>这是个span </span>').appendTo($('div'));
 ```
->> 3. prepend  往父级元素的子元素的最前面追加元素
+##### prepend  往父级元素的子元素的最前面追加元素
 ```javascript
     // parent.prepend(child)
     $('div').prepend($('<div>这是新建的最前边？标签</div>'));
 ```
->> 4. prependTo  元素追加到父级元素的内部元素的最前面
+##### prependTo  元素追加到父级元素的内部元素的最前面
+
 ```javascript
     // child.prependTo(parent)
     $('<p>这是一个P</p>').prependTo( $('div') );
 ```
->> 5. before  追加到元素的前面(同级)
+##### before  追加到元素的前面(同级)
+
 ```javascript
     $('div').before('<p>前面一个P</p>') 
 ```
->> 6. after   追加到元素后面(同级)
+##### after   追加到元素后面(同级)
+
 ```javascript
     $('div').after('<p>后面一个P</p>')
 ```
-城市选择案例
+
+##### 城市选择案例
 
 ```css
   <style>
@@ -79,15 +87,21 @@
   </script>
 ```
 
-3. 删除和清空节点
->> 1. remove()  // 删除自身，内部子元素一并删除
->> 2. empty()   // 清空内部所有元素，不包括自身
-> 4. 克隆节点
->> 1. clone()
->>> 1. 参数默认false
->>> 2. 参数false：克隆标签元素等
->>> 3. 参数true: 深度克隆 **包括事件**
+#### 删除和清空节点
 
+##### remove() 
+1. 删除自身，内部子元素一并删除
+##### empty()
+2. 清空内部所有元素，不包括自身
+
+#### 克隆节点
+
+##### clone()
+1. 参数默认false
+2. 参数false：克隆标签元素等
+3. 参数true: 深度克隆 **包括事件**
+
+##### 克隆节点 demo 　
 ```css
     <style>
     div{
@@ -123,7 +137,8 @@
     </script>
 ```
 
-5. 发布微博案例
+#### 发布微博案例
+
 ```css
   <style>
     * {
@@ -203,11 +218,11 @@
   });
 </script>
 ```
+### jquery特殊属性操作
 
-#### jquery特殊属性操作
+#### val()  设置和获取表单元素的值，如text，textarea等等
 
- 1. val()  设置和获取表单元素的值，如text，textarea等等
->> 搜索框体验案例
+##### 搜索框体验 demo
 
 ```html
    <input type="text" value="哒哒哒~">
@@ -228,45 +243,70 @@
     })
 ```
 
-> 2. html()和text()
->> 1. html() 相当于 innerHtml
->> 2. text() 相当于 innerText
+#### html()和text()
 
-> 3. width()-height()-innerWidth()-outerWidth()-innerHeight()-outerHeight()
->> 1. width() 无参数：获取元素width 有Number类型参数：设置width
->> 2. innerWidth() 获取元素panding和width
->> 3. oputerWidth() 
->>> 1. 无参数，参数默认是false时：获取元素pading和border和width
->>> 2. 参数是true时：获取元素pading和border和width和margin
->> 4. height() 无参数：获取元素高度 有Number类型的参数:设置height
->> 5. innerHeight() 获取元素padding和height
->> 6. outerHeight() 
->>> 1. 无参数，默认参数是false时： 获取元素padding和border和height
->>> 2. 参数是true时：获取元素padding和border和height和margin
+1. html() 相当于 innerHtml
+2. text() 相当于 innerText
 
-> 4. scrollTop()和scrollLeft()
->> 1. scrollTop() 获取被卷曲的高度, 可设置卷曲高度
->> 2. scrollLeft() 获取被卷曲的宽度，可设置卷曲高度
-> 5. 回忆js相关
->> 1. window.pageYOffset
->> 2. window.pageXOffset  
->> 3. 以屏幕左上角为基准获取卷曲宽高----只读
->> 4. document.documentElement.scrollTop
->> 5. document.documentElement.scrollLeft
->> 6. 这两个属性可读可写
->> 7. $(window) 不支持的动画,可用$('html')
+#### width()-height()-innerWidth()-outerWidth()-innerHeight()-outerHeight()
+##### width() 
 
-6. 固定导航案例
+1. 无参数：获取元素width 
+2. 有Number类型参数：设置width
+
+##### innerWidth() 
+
+1. 获取元素panding和width
+
+##### oputerWidth() 
+
+1. 无参数，参数默认是false时：获取元素pading和border和width
+2. 参数是true时：获取元素pading和border和width和margin
+
+##### height() 
+
+1. 无参数：获取元素高度 
+2. 有Number类型的参数:设置height
+
+##### innerHeight() 
+
+1. 获取元素padding和height
+
+##### outerHeight() 
+
+1. 无参数，默认参数是false时： 获取元素padding和border和height
+2. 参数是true时：获取元素padding和border和height和margin
+
+#### scrollTop()和scrollLeft()
+
+1. scrollTop() 获取被卷曲的高度, 可设置卷曲高度
+2. scrollLeft() 获取被卷曲的宽度，可设置卷曲高度
+
+#### js相关的屏幕滚动
+
+1. window.pageYOffset
+2. window.pageXOffset  
+3. 以屏幕左上角为基准获取卷曲宽高----只读
+4. document.documentElement.scrollTop
+5. document.documentElement.scrollLeft
+6. 这两个属性可读可写
+7. $(window) 不支持的动画,可用$('html')
+
+#### 固定导航案例
+
 [从这获取固定导航的代码](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-03/code/08-%E5%9B%BA%E5%AE%9A%E5%AF%BC%E8%88%AA)
-7. 回到顶部案例
-[从这获取回到顶部的代码](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-03/code/09-%E5%9B%9E%E5%88%B0%E9%A1%B6%E9%83%A8)
-> 8. position()和offset()
->> 1. offset方法和position方法都是用来获取盒子的位置的  left和top
->> 2. offset方法获取的是盒子在整个body中的位置
->> 3. position方法获取的盒子距离有定位的最近的父元素的位置 offsetLeft offsetTop
->> 4. 都是返回一个对象
 
-9. 弹幕案例
+#### 回到顶部案例
+
+[从这获取回到顶部的代码](https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-03/code/09-%E5%9B%9E%E5%88%B0%E9%A1%B6%E9%83%A8)
+
+#### position()和offset()
+1. offset方法和position方法都是用来获取盒子的位置的  left和top
+2. offset方法获取的是盒子在整个body中的位置
+3. position方法获取的盒子距离有定位的最近的父元素的位置 offsetLeft offsetTop
+4. 都是返回一个对象
+
+#### 弹幕案例
 
 ```css
   <style type="text/css">
@@ -425,16 +465,20 @@
 </script>
 
 ```
+### 事件注册
 
-#### 事件注册
+#### 简单注册方式
 
->1. 简单注册方式
 `click(func) / mouseenter(handler) / mouseleave(handler) `
 缺点: 不能注册多个事件
->2. bind注册
+
+#### bind注册
+
 `$("p").bind("click mouseenter", function(){});`
 缺点：不支持动态事件绑定
->3. delegate 事件委托
+
+#### delegate 事件委托
+
 ```javascript
 // 第一个参数：selector，要绑定事件的元素
 // 第二个参数：事件类型
@@ -445,20 +489,27 @@ $(".parentBox").delegate("p", "click", function(){
 ```
 缺点：只能注册委托事件
 
->**4. on注册事件(重点)**
->> 1. jQuery1.7之后，jQuery用on统一了所有事件的处理方法。
->> 2. 最现代的方式，兼容zepto(移动端类似jQuery的一个库)，强烈建议使用。
-> 1. on注册简单事件
+#### **on注册事件(重点)**
+
+1. jQuery1.7之后，jQuery用on统一了所有事件的处理方法。
+2. 最现代的方式，兼容zepto(移动端类似jQuery的一个库)，强烈建议使用。
+
+##### on注册简单事件
+
 ```javascript
  // 表示给$(selector)绑定事件，并且由自己触发，不支持动态绑定。
   $(selector).on( "click", function() {});
 ```
-> 2. on注册委托事件
+
+##### on注册委托事件
+
 ```javascript
 // 表示给$(selector)绑定代理事件，当必须是它的内部元素span才能触发这个事件，支持动态绑定
 $(selector).on( "click",“span”, function() {});
 ```
-> 3. on注册事件的语法
+
+##### on注册事件的语法
+
 ```javascript
 // 第一个参数：events，绑定事件的名称可以是由空格分隔的多个事件（标准事件或者自定义事件）
 // 第二个参数：selector, 执行事件的后代元素（可选），如果没有后代元素，那么事件将有自己执行。
@@ -466,7 +517,9 @@ $(selector).on( "click",“span”, function() {});
 // 第四个参数：handler，事件处理函数
 $(selector).on(events[,selector][,data],handler);
 ```
-> 5. 委托事件案例
+
+#### 表格操作(委托事件)案例
+
 ```css
 <style>
     * {

@@ -1,7 +1,7 @@
 <html>
   <head>
 	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>i5ting_ztree_toc:node</title>
+    <title>i5ting_ztree_toc:note</title>
 		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
 		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
 		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
@@ -65,45 +65,36 @@
 				</div>
         <div id='readme' style='width:70%;margin-left:20%;'>
           	<article class='markdown-body'>
-            	<h4 id="jquery-">jquery节点操作</h4>
-<blockquote>
+            	<h3 id="jquery-">jquery节点操作</h3>
+<h4 id="-">创建节点</h4>
 <ol>
-<li>创建节点<blockquote>
-<p>$()里面放html字符串</p>
-<blockquote>
-<p><code>$(&#39;&lt;button&gt;看我是一个按钮&lt;/button&gt;&#39;)</code></p>
-</blockquote>
-</blockquote>
-</li>
-<li>添加节点<blockquote>
-<ol>
-<li>append  给父级元素内部从后面追加子元素<pre><code class="lang-javascript">// parent.append(child)
-$(&#39;div&#39;).append( $(&#39;&lt;p&gt;这是新建的p标签&lt;/p&gt;&#39;) );
-</code></pre>
-</li>
-<li>appendTo  子元素从最后往父级元素内追加元素<pre><code class="lang-javascript">// child.appendTo(parent)
-$(&#39;&lt;span&gt;这是个span &lt;/span&gt;&#39;).appendTo($(&#39;div&#39;));
-</code></pre>
-</li>
-<li>prepend  往父级元素的子元素的最前面追加元素<pre><code class="lang-javascript">// parent.prepend(child)
-$(&#39;div&#39;).prepend($(&#39;&lt;div&gt;这是新建的最前边？标签&lt;/div&gt;&#39;));
-</code></pre>
-</li>
-<li>prependTo  元素追加到父级元素的内部元素的最前面<pre><code class="lang-javascript">// child.prependTo(parent)
-$(&#39;&lt;p&gt;这是一个P&lt;/p&gt;&#39;).prependTo( $(&#39;div&#39;) );
-</code></pre>
-</li>
-<li>before  追加到元素的前面(同级)<pre><code class="lang-javascript">$(&#39;div&#39;).before(&#39;&lt;p&gt;前面一个P&lt;/p&gt;&#39;) 
-</code></pre>
-</li>
-<li>after   追加到元素后面(同级)<pre><code class="lang-javascript">$(&#39;div&#39;).after(&#39;&lt;p&gt;后面一个P&lt;/p&gt;&#39;)
-</code></pre>
-城市选择案例</li>
+<li><code>$()里面放html字符串</code></li>
+<li><code>$(&#39;&lt;button&gt;看我是一个按钮&lt;/button&gt;&#39;)</code></li>
 </ol>
-</blockquote>
-</li>
-</ol>
-</blockquote>
+<h4 id="-">添加节点</h4>
+<h5 id="append-">append  给父级元素内部从后面追加子元素</h5>
+<pre><code class="lang-javascript">   // parent.append(child)
+    $(&#39;div&#39;).append( $(&#39;&lt;p&gt;这是新建的p标签&lt;/p&gt;&#39;) );
+</code></pre>
+<h5 id="appendto-">appendTo  子元素从最后往父级元素内追加元素</h5>
+<pre><code class="lang-javascript">    // child.appendTo(parent)
+    $(&#39;&lt;span&gt;这是个span &lt;/span&gt;&#39;).appendTo($(&#39;div&#39;));
+</code></pre>
+<h5 id="prepend-">prepend  往父级元素的子元素的最前面追加元素</h5>
+<pre><code class="lang-javascript">    // parent.prepend(child)
+    $(&#39;div&#39;).prepend($(&#39;&lt;div&gt;这是新建的最前边？标签&lt;/div&gt;&#39;));
+</code></pre>
+<h5 id="prependto-">prependTo  元素追加到父级元素的内部元素的最前面</h5>
+<pre><code class="lang-javascript">    // child.prependTo(parent)
+    $(&#39;&lt;p&gt;这是一个P&lt;/p&gt;&#39;).prependTo( $(&#39;div&#39;) );
+</code></pre>
+<h5 id="before-">before  追加到元素的前面(同级)</h5>
+<pre><code class="lang-javascript">    $(&#39;div&#39;).before(&#39;&lt;p&gt;前面一个P&lt;/p&gt;&#39;) 
+</code></pre>
+<h5 id="after-">after   追加到元素后面(同级)</h5>
+<pre><code class="lang-javascript">    $(&#39;div&#39;).after(&#39;&lt;p&gt;后面一个P&lt;/p&gt;&#39;)
+</code></pre>
+<h5 id="-">城市选择案例</h5>
 <pre><code class="lang-css">  &lt;style&gt;
     select {
       width: 200px;
@@ -143,26 +134,21 @@ $(&#39;&lt;p&gt;这是一个P&lt;/p&gt;&#39;).prependTo( $(&#39;div&#39;) );
     });
   &lt;/script&gt;
 </code></pre>
-<ol start="3">
-<li>删除和清空节点<blockquote>
-<blockquote>
+<h4 id="-">删除和清空节点</h4>
+<h5 id="remove-">remove()</h5>
 <ol>
-<li>remove()  // 删除自身，内部子元素一并删除</li>
-<li>empty()   // 清空内部所有元素，不包括自身</li>
-<li>克隆节点</li>
-<li>clone()<blockquote>
+<li>删除自身，内部子元素一并删除<h5 id="empty-">empty()</h5>
+</li>
+<li>清空内部所有元素，不包括自身</li>
+</ol>
+<h4 id="-">克隆节点</h4>
+<h5 id="clone-">clone()</h5>
 <ol>
 <li>参数默认false</li>
 <li>参数false：克隆标签元素等</li>
 <li>参数true: 深度克隆 <strong>包括事件</strong></li>
 </ol>
-</blockquote>
-</li>
-</ol>
-</blockquote>
-</blockquote>
-</li>
-</ol>
+<h5 id="-demo-">克隆节点 demo 　</h5>
 <pre><code class="lang-css">    &lt;style&gt;
     div{
         height: 400px;
@@ -192,49 +178,46 @@ $(&#39;&lt;p&gt;这是一个P&lt;/p&gt;&#39;).prependTo( $(&#39;div&#39;) );
      $(&#39;#test&#39;).clone(true).appendTo(&quot;body&quot;)
     &lt;/script&gt;
 </code></pre>
-<ol start="5">
-<li><p>发布微博案例</p>
-<pre><code class="lang-css">&lt;style&gt;
- * {
-   margin: 0;
-   padding: 0;
- }
+<h4 id="-">发布微博案例</h4>
+<pre><code class="lang-css">  &lt;style&gt;
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
- ul {
-   list-style: none;
- }
+    ul {
+      list-style: none;
+    }
 
- .box {
-   width: 600px;
-   margin: 100px auto;
-   border: 1px solid #000;
-   padding: 20px;
- }
+    .box {
+      width: 600px;
+      margin: 100px auto;
+      border: 1px solid #000;
+      padding: 20px;
+    }
 
- textarea {
-   width: 450px;
-   height: 160px;
-   outline: none;
-   resize: none;
- }
+    textarea {
+      width: 450px;
+      height: 160px;
+      outline: none;
+      resize: none;
+    }
 
- ul {
-   width: 450px;
-   padding-left: 80px;
- }
+    ul {
+      width: 450px;
+      padding-left: 80px;
+    }
 
- ul li {
-   line-height: 25px;
-   border-bottom: 1px dashed #cccccc;
- }
+    ul li {
+      line-height: 25px;
+      border-bottom: 1px dashed #cccccc;
+    }
 
- .fr {
-   float: right;
- }
-&lt;/style&gt;
+    .fr {
+      float: right;
+    }
+  &lt;/style&gt;
 </code></pre>
-</li>
-</ol>
 <pre><code class="lang-html">&lt;div class=&quot;box&quot; id=&quot;weibo&quot;&gt;
   &lt;span&gt;微博发布&lt;/span&gt;
   &lt;textarea name=&quot;&quot; id=&quot;txt&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;
@@ -270,15 +253,9 @@ $(&#39;&lt;p&gt;这是一个P&lt;/p&gt;&#39;).prependTo( $(&#39;div&#39;) );
   });
 &lt;/script&gt;
 </code></pre>
-<h4 id="jquery-">jquery特殊属性操作</h4>
-<ol>
-<li>val()  设置和获取表单元素的值，如text，textarea等等<blockquote>
-<blockquote>
-<p>搜索框体验案例</p>
-</blockquote>
-</blockquote>
-</li>
-</ol>
+<h3 id="jquery-">jquery特殊属性操作</h3>
+<h4 id="val-text-textarea-">val()  设置和获取表单元素的值，如text，textarea等等</h4>
+<h5 id="-demo">搜索框体验 demo</h5>
 <pre><code class="lang-html">   &lt;input type=&quot;text&quot; value=&quot;哒哒哒~&quot;&gt;
 </code></pre>
 <pre><code class="lang-javascript">  &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
@@ -294,54 +271,46 @@ $(&#39;&lt;p&gt;这是一个P&lt;/p&gt;&#39;).prependTo( $(&#39;div&#39;) );
         }
     })
 </code></pre>
-<blockquote>
-<ol start="2">
-<li>html()和text()<blockquote>
+<h4 id="html-text-">html()和text()</h4>
 <ol>
 <li>html() 相当于 innerHtml</li>
 <li>text() 相当于 innerText</li>
 </ol>
-</blockquote>
-</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="3">
-<li>width()-height()-innerWidth()-outerWidth()-innerHeight()-outerHeight()<blockquote>
+<h4 id="width-height-innerwidth-outerwidth-innerheight-outerheight-">width()-height()-innerWidth()-outerWidth()-innerHeight()-outerHeight()</h4>
+<h5 id="width-">width()</h5>
 <ol>
-<li>width() 无参数：获取元素width 有Number类型参数：设置width</li>
-<li>innerWidth() 获取元素panding和width</li>
-<li>oputerWidth() <blockquote>
+<li>无参数：获取元素width </li>
+<li>有Number类型参数：设置width</li>
+</ol>
+<h5 id="innerwidth-">innerWidth()</h5>
+<ol>
+<li>获取元素panding和width</li>
+</ol>
+<h5 id="oputerwidth-">oputerWidth()</h5>
 <ol>
 <li>无参数，参数默认是false时：获取元素pading和border和width</li>
 <li>参数是true时：获取元素pading和border和width和margin</li>
 </ol>
-</blockquote>
-</li>
-<li>height() 无参数：获取元素高度 有Number类型的参数:设置height</li>
-<li>innerHeight() 获取元素padding和height</li>
-<li>outerHeight() <blockquote>
+<h5 id="height-">height()</h5>
+<ol>
+<li>无参数：获取元素高度 </li>
+<li>有Number类型的参数:设置height</li>
+</ol>
+<h5 id="innerheight-">innerHeight()</h5>
+<ol>
+<li>获取元素padding和height</li>
+</ol>
+<h5 id="outerheight-">outerHeight()</h5>
 <ol>
 <li>无参数，默认参数是false时： 获取元素padding和border和height</li>
 <li>参数是true时：获取元素padding和border和height和margin</li>
 </ol>
-</blockquote>
-</li>
-</ol>
-</blockquote>
-</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="4">
-<li>scrollTop()和scrollLeft()<blockquote>
+<h4 id="scrolltop-scrollleft-">scrollTop()和scrollLeft()</h4>
 <ol>
 <li>scrollTop() 获取被卷曲的高度, 可设置卷曲高度</li>
 <li>scrollLeft() 获取被卷曲的宽度，可设置卷曲高度</li>
 </ol>
-</blockquote>
-</li>
-<li>回忆js相关<blockquote>
+<h4 id="js-">js相关的屏幕滚动</h4>
 <ol>
 <li>window.pageYOffset</li>
 <li>window.pageXOffset  </li>
@@ -351,32 +320,18 @@ $(&#39;&lt;p&gt;这是一个P&lt;/p&gt;&#39;).prependTo( $(&#39;div&#39;) );
 <li>这两个属性可读可写</li>
 <li>$(window) 不支持的动画,可用$(&#39;html&#39;)</li>
 </ol>
-</blockquote>
-</li>
-</ol>
-</blockquote>
-<ol start="6">
-<li>固定导航案例
-<a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-03/code/08-%E5%9B%BA%E5%AE%9A%E5%AF%BC%E8%88%AA">从这获取固定导航的代码</a></li>
-<li><p>回到顶部案例
-<a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-03/code/09-%E5%9B%9E%E5%88%B0%E9%A1%B6%E9%83%A8">从这获取回到顶部的代码</a></p>
-<blockquote>
-<ol start="8">
-<li>position()和offset()<blockquote>
+<h4 id="-">固定导航案例</h4>
+<p><a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-03/code/08-%E5%9B%BA%E5%AE%9A%E5%AF%BC%E8%88%AA">从这获取固定导航的代码</a></p>
+<h4 id="-">回到顶部案例</h4>
+<p><a href="https://github.com/sunhailiang/teachingMaterials_code/tree/master/jquery/day-03/code/09-%E5%9B%9E%E5%88%B0%E9%A1%B6%E9%83%A8">从这获取回到顶部的代码</a></p>
+<h4 id="position-offset-">position()和offset()</h4>
 <ol>
 <li>offset方法和position方法都是用来获取盒子的位置的  left和top</li>
 <li>offset方法获取的是盒子在整个body中的位置</li>
 <li>position方法获取的盒子距离有定位的最近的父元素的位置 offsetLeft offsetTop</li>
 <li>都是返回一个对象</li>
 </ol>
-</blockquote>
-</li>
-</ol>
-</blockquote>
-</li>
-<li><p>弹幕案例</p>
-</li>
-</ol>
+<h4 id="-">弹幕案例</h4>
 <pre><code class="lang-css">  &lt;style type=&quot;text/css&quot;&gt;
     html,
     body {
@@ -529,52 +484,44 @@ $(&#39;&lt;p&gt;这是一个P&lt;/p&gt;&#39;).prependTo( $(&#39;div&#39;) );
 &lt;/script&gt;
 
 </code></pre>
-<h4 id="-">事件注册</h4>
-<blockquote>
-<ol>
-<li>简单注册方式
-<code>click(func) / mouseenter(handler) / mouseleave(handler)</code>
-缺点: 不能注册多个事件</li>
-<li>bind注册
-<code>$(&quot;p&quot;).bind(&quot;click mouseenter&quot;, function(){});</code>
-缺点：不支持动态事件绑定</li>
-<li>delegate 事件委托<pre><code class="lang-javascript">// 第一个参数：selector，要绑定事件的元素
+<h3 id="-">事件注册</h3>
+<h4 id="-">简单注册方式</h4>
+<p><code>click(func) / mouseenter(handler) / mouseleave(handler)</code>
+缺点: 不能注册多个事件</p>
+<h4 id="bind-">bind注册</h4>
+<p><code>$(&quot;p&quot;).bind(&quot;click mouseenter&quot;, function(){});</code>
+缺点：不支持动态事件绑定</p>
+<h4 id="delegate-">delegate 事件委托</h4>
+<pre><code class="lang-javascript">// 第一个参数：selector，要绑定事件的元素
 // 第二个参数：事件类型
 // 第三个参数：事件处理函数
 $(&quot;.parentBox&quot;).delegate(&quot;p&quot;, &quot;click&quot;, function(){
- //为 .parentBox下面的所有的p标签绑定事件
+    //为 .parentBox下面的所有的p标签绑定事件
 });
 </code></pre>
-缺点：只能注册委托事件</li>
-</ol>
-</blockquote>
-<blockquote>
-<p><strong>4. on注册事件(重点)</strong></p>
-<blockquote>
+<p>缺点：只能注册委托事件</p>
+<h4 id="on-"><strong>on注册事件(重点)</strong></h4>
 <ol>
 <li>jQuery1.7之后，jQuery用on统一了所有事件的处理方法。</li>
 <li>最现代的方式，兼容zepto(移动端类似jQuery的一个库)，强烈建议使用。</li>
-<li>on注册简单事件<pre><code class="lang-javascript">// 表示给$(selector)绑定事件，并且由自己触发，不支持动态绑定。
-$(selector).on( &quot;click&quot;, function() {});
+</ol>
+<h5 id="on-">on注册简单事件</h5>
+<pre><code class="lang-javascript"> // 表示给$(selector)绑定事件，并且由自己触发，不支持动态绑定。
+  $(selector).on( &quot;click&quot;, function() {});
 </code></pre>
-</li>
-<li>on注册委托事件<pre><code class="lang-javascript">// 表示给$(selector)绑定代理事件，当必须是它的内部元素span才能触发这个事件，支持动态绑定
+<h5 id="on-">on注册委托事件</h5>
+<pre><code class="lang-javascript">// 表示给$(selector)绑定代理事件，当必须是它的内部元素span才能触发这个事件，支持动态绑定
 $(selector).on( &quot;click&quot;,“span”, function() {});
 </code></pre>
-</li>
-<li>on注册事件的语法<pre><code class="lang-javascript">// 第一个参数：events，绑定事件的名称可以是由空格分隔的多个事件（标准事件或者自定义事件）
+<h5 id="on-">on注册事件的语法</h5>
+<pre><code class="lang-javascript">// 第一个参数：events，绑定事件的名称可以是由空格分隔的多个事件（标准事件或者自定义事件）
 // 第二个参数：selector, 执行事件的后代元素（可选），如果没有后代元素，那么事件将有自己执行。
 // 第三个参数：data，传递给处理函数的数据，事件触发的时候通过event.data来使用（不常使用）
 // 第四个参数：handler，事件处理函数
 $(selector).on(events[,selector][,data],handler);
 </code></pre>
-</li>
-<li>委托事件案例
-<code>`</code>css</li>
-</ol>
-</blockquote>
-</blockquote>
-<style>
+<h4 id="-">表格操作(委托事件)案例</h4>
+<pre><code class="lang-css">&lt;style&gt;
     * {
       padding: 0;
       margin: 0;
@@ -600,12 +547,12 @@ $(selector).on(events[,selector][,data],handler);
 
     th {
       background-color: #09c;
-      font: bold 16px "Î¢ÈíÑÅºÚ";
+      font: bold 16px &quot;Î¢ÈíÑÅºÚ&quot;;
       color: #fff;
     }
 
     td {
-      font: 14px "Î¢ÈíÑÅºÚ";
+      font: 14px &quot;Î¢ÈíÑÅºÚ&quot;;
     }
 
     td a.get {
@@ -641,7 +588,7 @@ $(selector).on(events[,selector][,data],handler);
       line-height: 36px;
     }
 
-    .form-item > .lb {
+    .form-item &gt; .lb {
       position: absolute;
       left: 0;
       top: 0;
@@ -650,7 +597,7 @@ $(selector).on(events[,selector][,data],handler);
       text-align: right;
     }
 
-    .form-item > .txt {
+    .form-item &gt; .txt {
       width: 300px;
       height: 32px;
     }
@@ -718,10 +665,10 @@ $(selector).on(events[,selector][,data],handler);
       width: 170px;
       height: 32px;
     }
-  </style>
+  &lt;/style&gt;
 
-<pre><code>```html
-&lt;div class=&quot;wrap&quot;&gt;
+</code></pre>
+<pre><code class="lang-html">&lt;div class=&quot;wrap&quot;&gt;
   &lt;input type=&quot;button&quot; value=&quot;清空内容&quot; id=&quot;btn&quot;&gt;
   &lt;input type=&quot;button&quot; value=&quot;添加&quot; id=&quot;btnAdd&quot;&gt;
   &lt;table&gt;
@@ -759,7 +706,8 @@ $(selector).on(events[,selector][,data],handler);
     &lt;/tbody&gt;
   &lt;/table&gt;
 &lt;/div&gt;
-</code></pre><pre><code class="lang-javascript">
+</code></pre>
+<pre><code class="lang-javascript">
 &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
   $(function(){

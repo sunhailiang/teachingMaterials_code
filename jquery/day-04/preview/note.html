@@ -1,0 +1,311 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:note</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h3 id="-">事件解绑</h3>
+<ol>
+<li>unbind方式（不用）<pre><code class="lang-js">$(selector).unbind(); //解绑所有的事件
+$(selector).unbind(&quot;click&quot;); //解绑指定的事件
+</code></pre>
+</li>
+<li>undelegate方式（不用）<pre><code class="lang-js">$( selector ).undelegate(); //解绑所有的delegate事件
+$( selector).undelegate( “click” ); //解绑所有的click事件
+</code></pre>
+</li>
+<li><strong>off方式（推荐）</strong><pre><code class="lang-js">// 解绑匹配元素的所有事件
+$(selector).off();
+// 解绑匹配元素的所有click事件
+$(selector).off(&quot;click&quot;);
+// 解绑指定类型元素的委托事件
+$(&#39;div&#39;).off(&quot;click&quot;,&#39;p&#39;)
+// 解绑所有的委托事件
+(&#39;div&#39;).off(&quot;click&quot;,&#39;**&#39;)
+</code></pre>
+</li>
+</ol>
+<h3 id="-">触发事件</h3>
+<pre><code class="lang-html">  &lt;button&gt;我是一个按钮&lt;/button&gt;
+  &lt;input type=&quot;button&quot; value=&quot;按钮&quot;&gt;
+</code></pre>
+<pre><code class="lang-js">  &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(function(){
+      $(&#39;button&#39;).on(&#39;click&#39;, function() {
+        console.log(&#39;这是给button注册的事件&#39;);
+      });
+
+
+      $(&#39;input&#39;).on(&#39;click&#39;, function() {
+        // 触发button的点击事件
+        // 触发方式1： 直接调用事件名
+        // 触发方式2   trigger():触发 
+        $(&#39;button&#39;).trigger(&#39;click&#39;);
+      });
+    });
+  &lt;/script&gt;
+</code></pre>
+<h3 id="jquery-event">jquery事件对象 event</h3>
+<ol>
+<li><p>jQuery事件对象其实就是js事件对象的一个封装，处理了兼容性。</p>
+<pre><code class="lang-html">&lt;button&gt;按钮&lt;/button&gt;
+&lt;a href=&quot;http://www.baidu.com&quot;&gt;哈哈&lt;/a&gt;
+</code></pre>
+<pre><code class="lang-js">&lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+ $(function(){
+   $(&#39;a&#39;).on(&quot;click&quot;, function(e) {
+
+     //  e:就是事件对象 
+
+     // e.stopPropagation() 阻止事件冒泡
+     // e.preventDefault(); // : 阻止浏览器默认行为
+     // return false; 即可阻止事件冒泡， 也可以阻止浏览器的默认行为(不推荐)
+     return false;
+   });
+ });
+&lt;/script&gt;
+</code></pre>
+</li>
+</ol>
+<h3 id="jquery-">jquery链式编程</h3>
+<ol>
+<li>在jquery中允许我们连续链装的调用jquery的方法</li>
+<li>但是要求链式编程中每次函数执行完都要返回原始对象</li>
+<li>一般在设置性操作时才会使用链式编程，因为一般设执行操作不会改变jquery对象</li>
+<li>在获取时一般不能使用链式编程，因为获取操作容易改变jquery对象</li>
+<li>end() 恢复上一次的链</li>
+</ol>
+<pre><code class="lang-css"> &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            font-size: 50px;
+            float: left;
+            color: orange;
+        }
+    &lt;/style&gt;
+</code></pre>
+<pre><code class="lang-html"> &lt;ul&gt;
+        &lt;li&gt;☆&lt;/li&gt;
+        &lt;li&gt;☆&lt;/li&gt;
+        &lt;li&gt;☆&lt;/li&gt;
+        &lt;li&gt;☆&lt;/li&gt;
+        &lt;li&gt;☆&lt;/li&gt;
+    &lt;/ul&gt;
+</code></pre>
+<pre><code class="lang-js"> &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(function () {
+            // 鼠标悬浮到li,当前li以及之前的兄弟成员需要被选中
+            // 鼠标离开恢复空心
+            // 鼠标点击当前对象以及之前的兄弟元素被选中
+            var idx = -1
+            $(&#39;li&#39;).mouseenter(function () {               
+                $(this).text(&quot;★&quot;).prevAll().text(&quot;★&quot;).end().nextAll().text(&quot;☆&quot;)
+            })
+            $(&#39;li&#39;).mouseleave(function () {
+                $(&#39;li&#39;).text(&#39;☆&#39;)
+                if (idx &gt;= 0) {
+                    $(&#39;li&#39;).eq(idx).text(&#39;★&#39;).prevAll().text(&quot;★&quot;)
+                }
+
+            })
+            $(&#39;li&#39;).click(function () {
+                idx = $(this).index()
+            })
+
+
+        //========还有常用方法
+        // prev() 获取上一个兄弟
+        // prevAll() 获取前面所有兄弟
+        // next() 获取下一个兄弟
+        // nextAll() 获取后面所有兄弟
+        /// siblings() 获取所有同级兄弟
+
+        });
+    &lt;/script&gt;
+</code></pre>
+<h3 id="-">隐式迭代的概念</h3>
+<ol>
+<li>隐式迭代：jquery对象不需要自己写for循环，jquery内部会自动遍历 <ol>
+<li>jquery设置操作：内部自动遍历，所有元素都会被设置同样的值，如果需要设置不同的值，就需要自己处理循环</li>
+<li>jquery获取操作，直接返回 <strong>第一个元素</strong> 的样式</li>
+</ol>
+</li>
+<li>显示迭代：1.each()  // 参数一：内部dom元素的下标，参数二：dom元素，可以用this直接获取</li>
+<li>可以用for主动循环元素</li>
+</ol>
+<h3 id="-">多库共存</h3>
+<ol>
+<li>jQuery也是jquery文件暴露的一个对象，可当作$使用</li>
+<li>$是jquery文件的暴露的第二个对象</li>
+<li>如果$冲突可以用jQuery替换</li>
+<li>也可以使用$.noConflic()放弃$控制权，使用 <strong>自定变量</strong> 接收该方法返回的对象替代$</li>
+</ol>
+<h3 id="jquery-">jquery插件</h3>
+<ol>
+<li>依赖jquery开发的插件</li>
+</ol>
+<h3 id="jquery-color-">jquery.color库的使用</h3>
+<pre><code class="lang-css">  &lt;style&gt;
+    div {
+      width: 300px;
+      height: 300px;
+      background-color: green;
+    }
+  &lt;/style&gt;
+</code></pre>
+<pre><code class="lang-html">  &lt;div&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="lang-js">  &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;jquery.color.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(function(){
+      $(&#39;div&#39;).animate({
+        width: 600,
+        backgroundColor: &#39;red&#39;
+      }, 1000)
+    });
+  &lt;/script&gt;
+</code></pre>
+<h3 id="jquery-lazyload-">jquery.lazyload库的使用</h3>
+<pre><code class="lang-css">  &lt;style&gt;
+    div {
+      height: 3000px;
+    }
+  &lt;/style&gt;
+</code></pre>
+<pre><code class="lang-html">&lt;div&gt;&lt;/div&gt;
+&lt;!-- 真实图片的地址放在 data-original --&gt;
+  &lt;img class=&quot;lazy&quot; data-original=&quot;1.jpg&quot; alt=&quot;&quot; width=&quot;500&quot; height=&quot;350&quot;&gt;
+  &lt;img class=&quot;lazy&quot; data-original=&quot;2.jpg&quot; alt=&quot;&quot;&gt;
+</code></pre>
+<pre><code class="lang-js">  &lt;script src=&quot;jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;jquery.lazyload.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(&quot;.lazy&quot;).lazyload();
+  &lt;/script&gt;
+</code></pre>
+<h3 id="jquery-">jquery插件封装的原理</h3>
+<p><code>$.fn.pluginName=function(){}</code></p>
+<p>###　封装一个小插件</p>
+<pre><code class="lang-js">$.fn.bgc = function(color) {
+  // 在$.fn的方法中， this指的就是当前的jquery对象
+  this.css(&#39;backgroundColor&#39;, color);
+  return this;
+}
+</code></pre>
+<h3 id="-">封装一个拖拽插件</h3>
+<pre><code class="lang-js">$.fn.drag = function() {
+  // 使用变量把this给存起来
+  var that = this;
+  that.on(&#39;mousedown&#39;, function(e) {
+    e.preventDefault();
+    var x = e.offsetX;
+    var y = e.offsetY;
+
+    $(document).on(&#39;mousemove&#39;, function(e) {
+      that.css({
+        position: &#39;absolute&#39;,
+        left: e.pageX - x,
+        top: e.pageY - y
+      });
+    });
+  });
+
+  that.on(&#39;mouseup&#39;, function() {
+    $(document).off(&#39;mousemove&#39;);
+  });
+
+  return that;
+};
+</code></pre>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
